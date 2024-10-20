@@ -51,14 +51,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\ACCOUNT.cs" />
+    <Compile Include="Entities\BILL.cs" />
+    <Compile Include="Entities\BILLINFO.cs" />
+    <Compile Include="Entities\CAFEModel.cs" />
+    <Compile Include="Entities\COFFEETYPE.cs" />
+    <Compile Include="Entities\DISCOUNT.cs" />
+    <Compile Include="Entities\DISCOUNTMENU.cs" />
+    <Compile Include="Entities\EMPLOYEE.cs" />
+    <Compile Include="Entities\INVENTORY.cs" />
+    <Compile Include="Entities\MENU.cs" />
+    <Compile Include="Entities\TABLECOFFEE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

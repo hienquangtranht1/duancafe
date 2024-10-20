@@ -1,0 +1,24 @@
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\DAL.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\DAL.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\EntityFramework.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\EntityFramework.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\obj\Debug\DAL.csproj.Up2Date
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\obj\Debug\DAL.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\DAL\obj\Debug\DAL.pdb
