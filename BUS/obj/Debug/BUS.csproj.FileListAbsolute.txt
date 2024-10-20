@@ -1,0 +1,30 @@
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\BUS.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\BUS.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\BUS.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\EntityFramework.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\DAL.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\DAL.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\EntityFramework.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.csproj.Up2Date
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.dll.config
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.Up2Date
