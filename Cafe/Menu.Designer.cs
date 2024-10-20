@@ -432,7 +432,7 @@
             // quảnLýToolStripMenuItem
             // 
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.quảnLýToolStripMenuItem.Text = "Quản lý";
             this.quảnLýToolStripMenuItem.Click += new System.EventHandler(this.quảnLýToolStripMenuItem_Click);
             // 
@@ -488,6 +488,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.Text = "Menu_Nhân viên";
+            this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvsv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

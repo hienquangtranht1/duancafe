@@ -45,11 +45,9 @@
             this.lblanhmenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblmoneyfood = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblmasp = new System.Windows.Forms.Label();
+            this.txtgiadoan = new System.Windows.Forms.TextBox();
             this.cboloaisp = new System.Windows.Forms.ComboBox();
             this.txttensp = new System.Windows.Forms.TextBox();
-            this.txtmasp = new System.Windows.Forms.TextBox();
             this.lbloaisp = new System.Windows.Forms.Label();
             this.lbltensp = new System.Windows.Forms.Label();
             this.lblmsp = new System.Windows.Forms.Label();
@@ -110,20 +108,20 @@
             this.DAYEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpnhanvien = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txttimidnv = new System.Windows.Forms.TextBox();
             this.btntimnv = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtchucvunv = new System.Windows.Forms.TextBox();
+            this.btnthemanhnv = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblngaydaulamnv = new System.Windows.Forms.Label();
             this.dtpkngaythue = new System.Windows.Forms.DateTimePicker();
             this.lblluongnhanvien = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtluongnv = new System.Windows.Forms.TextBox();
             this.lblidnhanvien = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txttennv = new System.Windows.Forms.TextBox();
+            this.txtidnv = new System.Windows.Forms.TextBox();
             this.lblchucvunv = new System.Windows.Forms.Label();
             this.lblttennv = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -346,6 +344,7 @@
             this.tpfood.TabIndex = 1;
             this.tpfood.Text = "Menu";
             this.tpfood.UseVisualStyleBackColor = true;
+            this.tpfood.Click += new System.EventHandler(this.tpfood_Click);
             // 
             // panel6
             // 
@@ -371,6 +370,7 @@
             this.btnfindfood.TabIndex = 4;
             this.btnfindfood.Text = "Tìm";
             this.btnfindfood.UseVisualStyleBackColor = true;
+            this.btnfindfood.Click += new System.EventHandler(this.btnfindfood_Click);
             // 
             // panel5
             // 
@@ -378,11 +378,9 @@
             this.panel5.Controls.Add(this.lblanhmenu);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.lblmoneyfood);
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.lblmasp);
+            this.panel5.Controls.Add(this.txtgiadoan);
             this.panel5.Controls.Add(this.cboloaisp);
             this.panel5.Controls.Add(this.txttensp);
-            this.panel5.Controls.Add(this.txtmasp);
             this.panel5.Controls.Add(this.lbloaisp);
             this.panel5.Controls.Add(this.lbltensp);
             this.panel5.Controls.Add(this.lblmsp);
@@ -390,6 +388,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(267, 477);
             this.panel5.TabIndex = 2;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnthemanhmenu
             // 
@@ -397,7 +396,7 @@
             this.btnthemanhmenu.Name = "btnthemanhmenu";
             this.btnthemanhmenu.Size = new System.Drawing.Size(75, 23);
             this.btnthemanhmenu.TabIndex = 38;
-            this.btnthemanhmenu.Text = "Thêm";
+            this.btnthemanhmenu.Text = "...";
             this.btnthemanhmenu.UseVisualStyleBackColor = true;
             this.btnthemanhmenu.Click += new System.EventHandler(this.btnthemanhmenu_Click);
             // 
@@ -412,9 +411,12 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::Cafe.Properties.Resources.ca_phe_buon_me_thuoc;
             this.pictureBox1.Location = new System.Drawing.Point(64, 235);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
@@ -427,22 +429,13 @@
             this.lblmoneyfood.TabIndex = 36;
             this.lblmoneyfood.Text = "giá";
             // 
-            // textBox1
+            // txtgiadoan
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 176);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 35;
-            // 
-            // lblmasp
-            // 
-            this.lblmasp.AutoSize = true;
-            this.lblmasp.Location = new System.Drawing.Point(11, 20);
-            this.lblmasp.Name = "lblmasp";
-            this.lblmasp.Size = new System.Drawing.Size(44, 16);
-            this.lblmasp.TabIndex = 34;
-            this.lblmasp.Text = "Mã sp";
+            this.txtgiadoan.Location = new System.Drawing.Point(64, 176);
+            this.txtgiadoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtgiadoan.Name = "txtgiadoan";
+            this.txtgiadoan.Size = new System.Drawing.Size(200, 22);
+            this.txtgiadoan.TabIndex = 35;
             // 
             // cboloaisp
             // 
@@ -460,14 +453,6 @@
             this.txttensp.Name = "txttensp";
             this.txttensp.Size = new System.Drawing.Size(200, 22);
             this.txttensp.TabIndex = 32;
-            // 
-            // txtmasp
-            // 
-            this.txtmasp.Location = new System.Drawing.Point(64, 20);
-            this.txtmasp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtmasp.Name = "txtmasp";
-            this.txtmasp.Size = new System.Drawing.Size(200, 22);
-            this.txtmasp.TabIndex = 31;
             // 
             // lbloaisp
             // 
@@ -513,6 +498,7 @@
             this.btnfixffood.TabIndex = 2;
             this.btnfixffood.Text = "Sửa";
             this.btnfixffood.UseVisualStyleBackColor = true;
+            this.btnfixffood.Click += new System.EventHandler(this.btnfixffood_Click);
             // 
             // btndeletefood
             // 
@@ -522,6 +508,7 @@
             this.btndeletefood.TabIndex = 1;
             this.btndeletefood.Text = "Xóa";
             this.btndeletefood.UseVisualStyleBackColor = true;
+            this.btndeletefood.Click += new System.EventHandler(this.btndeletefood_Click);
             // 
             // btnaddfood
             // 
@@ -531,6 +518,7 @@
             this.btnaddfood.TabIndex = 0;
             this.btnaddfood.Text = "Thêm";
             this.btnaddfood.UseVisualStyleBackColor = true;
+            this.btnaddfood.Click += new System.EventHandler(this.btnaddfood_Click);
             // 
             // panel3
             // 
@@ -557,6 +545,8 @@
             this.dtgvFood.RowTemplate.Height = 24;
             this.dtgvFood.Size = new System.Drawing.Size(522, 471);
             this.dtgvFood.TabIndex = 1;
+            this.dtgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellClick);
+            this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
             // ID
             // 
@@ -1018,22 +1008,23 @@
             this.tpnhanvien.TabIndex = 4;
             this.tpnhanvien.Text = "Nhân viên";
             this.tpnhanvien.UseVisualStyleBackColor = true;
+            this.tpnhanvien.Click += new System.EventHandler(this.tpnhanvien_Click);
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.textBox4);
+            this.panel13.Controls.Add(this.txttimidnv);
             this.panel13.Controls.Add(this.btntimnv);
             this.panel13.Location = new System.Drawing.Point(537, 6);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(267, 76);
             this.panel13.TabIndex = 7;
             // 
-            // textBox4
+            // txttimidnv
             // 
-            this.textBox4.Location = new System.Drawing.Point(3, 27);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 22);
-            this.textBox4.TabIndex = 5;
+            this.txttimidnv.Location = new System.Drawing.Point(3, 27);
+            this.txttimidnv.Name = "txttimidnv";
+            this.txttimidnv.Size = new System.Drawing.Size(160, 22);
+            this.txttimidnv.TabIndex = 5;
             // 
             // btntimnv
             // 
@@ -1043,20 +1034,21 @@
             this.btntimnv.TabIndex = 4;
             this.btntimnv.Text = "Tìm";
             this.btntimnv.UseVisualStyleBackColor = true;
+            this.btntimnv.Click += new System.EventHandler(this.btntimnv_Click);
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.button1);
+            this.panel14.Controls.Add(this.txtchucvunv);
+            this.panel14.Controls.Add(this.btnthemanhnv);
             this.panel14.Controls.Add(this.label1);
             this.panel14.Controls.Add(this.pictureBox2);
             this.panel14.Controls.Add(this.lblngaydaulamnv);
             this.panel14.Controls.Add(this.dtpkngaythue);
             this.panel14.Controls.Add(this.lblluongnhanvien);
-            this.panel14.Controls.Add(this.textBox5);
+            this.panel14.Controls.Add(this.txtluongnv);
             this.panel14.Controls.Add(this.lblidnhanvien);
-            this.panel14.Controls.Add(this.comboBox1);
-            this.panel14.Controls.Add(this.textBox6);
-            this.panel14.Controls.Add(this.textBox7);
+            this.panel14.Controls.Add(this.txttennv);
+            this.panel14.Controls.Add(this.txtidnv);
             this.panel14.Controls.Add(this.lblchucvunv);
             this.panel14.Controls.Add(this.lblttennv);
             this.panel14.Controls.Add(this.label6);
@@ -1065,14 +1057,23 @@
             this.panel14.Size = new System.Drawing.Size(267, 477);
             this.panel14.TabIndex = 6;
             // 
-            // button1
+            // txtchucvunv
             // 
-            this.button1.Location = new System.Drawing.Point(127, 401);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtchucvunv.Location = new System.Drawing.Point(64, 128);
+            this.txtchucvunv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtchucvunv.Name = "txtchucvunv";
+            this.txtchucvunv.Size = new System.Drawing.Size(200, 22);
+            this.txtchucvunv.TabIndex = 54;
+            // 
+            // btnthemanhnv
+            // 
+            this.btnthemanhnv.Location = new System.Drawing.Point(127, 401);
+            this.btnthemanhnv.Name = "btnthemanhnv";
+            this.btnthemanhnv.Size = new System.Drawing.Size(75, 23);
+            this.btnthemanhnv.TabIndex = 53;
+            this.btnthemanhnv.Text = "...";
+            this.btnthemanhnv.UseVisualStyleBackColor = true;
+            this.btnthemanhnv.Click += new System.EventHandler(this.btnthemanhnv_Click);
             // 
             // label1
             // 
@@ -1088,6 +1089,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(64, 257);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 138);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 52;
             this.pictureBox2.TabStop = false;
             // 
@@ -1116,13 +1118,13 @@
             this.lblluongnhanvien.TabIndex = 36;
             this.lblluongnhanvien.Text = "lương nv";
             // 
-            // textBox5
+            // txtluongnv
             // 
-            this.textBox5.Location = new System.Drawing.Point(64, 176);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 22);
-            this.textBox5.TabIndex = 35;
+            this.txtluongnv.Location = new System.Drawing.Point(64, 176);
+            this.txtluongnv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtluongnv.Name = "txtluongnv";
+            this.txtluongnv.Size = new System.Drawing.Size(200, 22);
+            this.txtluongnv.TabIndex = 35;
             // 
             // lblidnhanvien
             // 
@@ -1133,39 +1135,30 @@
             this.lblidnhanvien.TabIndex = 34;
             this.lblidnhanvien.Text = "Mã nv";
             // 
-            // comboBox1
+            // txttennv
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(64, 125);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 33;
+            this.txttennv.Location = new System.Drawing.Point(64, 70);
+            this.txttennv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttennv.Name = "txttennv";
+            this.txttennv.Size = new System.Drawing.Size(200, 22);
+            this.txttennv.TabIndex = 32;
             // 
-            // textBox6
+            // txtidnv
             // 
-            this.textBox6.Location = new System.Drawing.Point(64, 70);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 22);
-            this.textBox6.TabIndex = 32;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(64, 20);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 22);
-            this.textBox7.TabIndex = 31;
+            this.txtidnv.Location = new System.Drawing.Point(64, 20);
+            this.txtidnv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtidnv.Name = "txtidnv";
+            this.txtidnv.Size = new System.Drawing.Size(200, 22);
+            this.txtidnv.TabIndex = 31;
             // 
             // lblchucvunv
             // 
             this.lblchucvunv.AutoSize = true;
-            this.lblchucvunv.Location = new System.Drawing.Point(11, 128);
+            this.lblchucvunv.Location = new System.Drawing.Point(3, 131);
             this.lblchucvunv.Name = "lblchucvunv";
-            this.lblchucvunv.Size = new System.Drawing.Size(50, 16);
+            this.lblchucvunv.Size = new System.Drawing.Size(52, 16);
             this.lblchucvunv.TabIndex = 30;
-            this.lblchucvunv.Text = "Loại nv";
+            this.lblchucvunv.Text = "chức vụ";
             // 
             // lblttennv
             // 
@@ -1202,6 +1195,7 @@
             this.btnsuanv.TabIndex = 2;
             this.btnsuanv.Text = "Sửa";
             this.btnsuanv.UseVisualStyleBackColor = true;
+            this.btnsuanv.Click += new System.EventHandler(this.btnsuanv_Click);
             // 
             // btnxoanv
             // 
@@ -1211,6 +1205,7 @@
             this.btnxoanv.TabIndex = 1;
             this.btnxoanv.Text = "Xóa";
             this.btnxoanv.UseVisualStyleBackColor = true;
+            this.btnxoanv.Click += new System.EventHandler(this.btnxoanv_Click);
             // 
             // btnaddnhanvien
             // 
@@ -1220,6 +1215,7 @@
             this.btnaddnhanvien.TabIndex = 0;
             this.btnaddnhanvien.Text = "Thêm";
             this.btnaddnhanvien.UseVisualStyleBackColor = true;
+            this.btnaddnhanvien.Click += new System.EventHandler(this.btnaddnhanvien_Click);
             // 
             // panel16
             // 
@@ -1244,41 +1240,47 @@
             this.dtgvnv.RowTemplate.Height = 24;
             this.dtgvnv.Size = new System.Drawing.Size(519, 471);
             this.dtgvnv.TabIndex = 1;
+            this.dtgvnv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvnv_CellClick);
+            this.dtgvnv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvnv_CellContentClick);
             // 
             // IDEMPLOYEE
             // 
+            this.IDEMPLOYEE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.IDEMPLOYEE.HeaderText = "ID ";
             this.IDEMPLOYEE.MinimumWidth = 6;
             this.IDEMPLOYEE.Name = "IDEMPLOYEE";
-            this.IDEMPLOYEE.Width = 125;
+            this.IDEMPLOYEE.Width = 49;
             // 
             // NAMENV
             // 
+            this.NAMENV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.NAMENV.HeaderText = "TÊN ";
             this.NAMENV.MinimumWidth = 6;
             this.NAMENV.Name = "NAMENV";
-            this.NAMENV.Width = 125;
+            this.NAMENV.Width = 67;
             // 
             // CHUCVU
             // 
+            this.CHUCVU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CHUCVU.HeaderText = "CHỨC VỤ";
             this.CHUCVU.MinimumWidth = 6;
             this.CHUCVU.Name = "CHUCVU";
-            this.CHUCVU.Width = 125;
+            this.CHUCVU.Width = 89;
             // 
             // LUONGNV
             // 
+            this.LUONGNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.LUONGNV.HeaderText = "LƯƠNG";
             this.LUONGNV.MinimumWidth = 6;
             this.LUONGNV.Name = "LUONGNV";
-            this.LUONGNV.Width = 125;
+            this.LUONGNV.Width = 83;
             // 
             // DATE_HIRE
             // 
+            this.DATE_HIRE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DATE_HIRE.HeaderText = "NGÀY VÀO LÀM";
             this.DATE_HIRE.MinimumWidth = 6;
             this.DATE_HIRE.Name = "DATE_HIRE";
-            this.DATE_HIRE.Width = 125;
             // 
             // tptable
             // 
@@ -1973,11 +1975,9 @@
         private System.Windows.Forms.Label lblanhmenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblmoneyfood;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblmasp;
+        private System.Windows.Forms.TextBox txtgiadoan;
         private System.Windows.Forms.ComboBox cboloaisp;
         private System.Windows.Forms.TextBox txttensp;
-        private System.Windows.Forms.TextBox txtmasp;
         private System.Windows.Forms.Label lbloaisp;
         private System.Windows.Forms.Label lbltensp;
         private System.Windows.Forms.Label lblmsp;
@@ -2033,20 +2033,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DAYEND;
         private System.Windows.Forms.TabPage tpnhanvien;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txttimidnv;
         private System.Windows.Forms.Button btntimnv;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnthemanhnv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblngaydaulamnv;
         private System.Windows.Forms.DateTimePicker dtpkngaythue;
         private System.Windows.Forms.Label lblluongnhanvien;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtluongnv;
         private System.Windows.Forms.Label lblidnhanvien;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txttennv;
+        private System.Windows.Forms.TextBox txtidnv;
         private System.Windows.Forms.Label lblchucvunv;
         private System.Windows.Forms.Label lblttennv;
         private System.Windows.Forms.Label label6;
@@ -2056,11 +2055,6 @@
         private System.Windows.Forms.Button btnaddnhanvien;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.DataGridView dtgvnv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDEMPLOYEE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NAMENV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CHUCVU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LUONGNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DATE_HIRE;
         private System.Windows.Forms.TabPage tptable;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.TextBox textBox9;
@@ -2132,5 +2126,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TENMON;
         private System.Windows.Forms.DataGridViewTextBoxColumn LOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDEMPLOYEE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAMENV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CHUCVU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LUONGNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATE_HIRE;
+        private System.Windows.Forms.TextBox txtchucvunv;
     }
 }

@@ -90,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -114,6 +115,12 @@
       <Project>{a6e6c920-15b3-42b9-b624-232265b27ca4}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z5939290777500_3d49f921f84f9c15a304124858d363d2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ca-phe-buon-me-thuoc.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
