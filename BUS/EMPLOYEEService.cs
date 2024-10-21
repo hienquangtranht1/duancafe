@@ -17,7 +17,7 @@ namespace BUS
             }
         }
 
-        // Thêm một nhân viên mới
+     
         public (bool result, string message) Add(EMPLOYEE employee)
         {
             try
@@ -35,7 +35,7 @@ namespace BUS
             }
         }
 
-        // Cập nhật thông tin nhân viên
+        
         public (bool result, string message) Update(EMPLOYEE employee)
         {
             try
@@ -48,7 +48,7 @@ namespace BUS
                         return (false, "Nhân viên không tồn tại.");
                     }
 
-                    // Cập nhật thông tin nhân viên
+                    
                     existingEmployee.NAME = employee.NAME;
                     existingEmployee.POSITION = employee.POSITION;
                     existingEmployee.SALARY = employee.SALARY;
@@ -65,7 +65,7 @@ namespace BUS
             }
         }
 
-        // Xóa nhân viên theo ID
+       
         public (bool result, string message) DeleteById(int id)
         {
             try
@@ -94,7 +94,7 @@ namespace BUS
             using (CAFEModel model = new CAFEModel())
             {
                 return model.EMPLOYEEs
-                            .Where(e => e.NAME.Contains(name)) // Adjust this condition as needed
+                            .Where(e => e.NAME.Contains(name)) 
                             .ToList();
             }
         }
