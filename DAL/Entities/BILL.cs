@@ -13,6 +13,7 @@ namespace DAL.Entities
         public BILL()
         {
             BILLINFOes = new HashSet<BILLINFO>();
+
         }
 
         [Key]
@@ -20,6 +21,12 @@ namespace DAL.Entities
         public int IDBILL { get; set; }
 
         public int IDTABLE { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? dateCheckIn { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? dateCheckOut { get; set; }
 
         public int? STATUS { get; set; }
 

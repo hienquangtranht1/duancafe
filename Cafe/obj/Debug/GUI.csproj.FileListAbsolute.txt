@@ -67,3 +67,87 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.cspro
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.exe
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.dll.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.dll.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.xml
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.exe
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.exe
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\Cafe.exe.config
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\Cafe.exe
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\Cafe.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\BUS.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\BUS.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\BUS.dll.config
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.exe
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\obj\Debug\Cafe.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EPPlus.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Buffers.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Memory.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\EPPlus.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Buffers.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Memory.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\Cafe\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

@@ -1,18 +1,48 @@
 ﻿using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BUS
 {
-    internal class BILLService
+    public class BILLService
     {
         public List<BILL> GetAll()
         {
             CAFEModel model = new CAFEModel();
             return model.BILLs.ToList();
+        }
+        private static BILLService instance;
+        public static BILLService Instance
+        {
+            get
+            {
+                if (instance == null) instance = new BILLService();
+                return instance;
+            }
+            private set
+            {
+                instance = value;
+            }
+        }
+
+       
+
+        public List<BILL> GetBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            using (var model = new CAFEModel())
+            {
+                // Lấy danh sách hóa đơn trong khoảng thời gian với eager loading
+                var billList = model.BILLs
+                                    .Include(b => b.TABLECOFFEE)
+                                    .Include(b => b.BILLINFOes.Select(bi => bi.MENU)) // Load MENU thông qua BILLINFO
+                                    .Where(b => b.dateCheckIn >= checkIn && b.dateCheckOut <= checkOut)
+                                    .ToList();
+                return billList;
+            }
         }
     }
 

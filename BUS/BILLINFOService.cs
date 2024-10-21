@@ -16,5 +16,6 @@ namespace BUS
             return model.BILLINFOes.ToList();
         }
         
+
     }
 }
