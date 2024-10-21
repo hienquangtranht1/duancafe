@@ -10,3 +10,15 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.csproj.CoreComp
 D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.dll
 D:\hoc\bai tap moi truong windows\DemodoanCafe\DAL\obj\Debug\DAL.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\DAL.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\DAL.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\EntityFramework.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\EntityFramework.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\obj\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\DAL\obj\Debug\DAL.pdb

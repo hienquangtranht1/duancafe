@@ -44,3 +44,26 @@ C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\DAL.dll.config
 C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.xml
 C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\Cafe.exe.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\Cafe.exe
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\Cafe.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\BUS.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\DAL.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\EntityFramework.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\BUS.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\BUS.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\DAL.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\DAL.dll.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\EntityFramework.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.exe
+D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.pdb

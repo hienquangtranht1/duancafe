@@ -83,16 +83,16 @@
             this.tpkhuyenmai = new System.Windows.Forms.TabPage();
             this.panel17 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btntimkm = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lbldayend = new System.Windows.Forms.Label();
             this.lbldaybegin = new System.Windows.Forms.Label();
             this.dtpkdayendkm = new System.Windows.Forms.DateTimePicker();
             this.dtpkdaystartkm = new System.Windows.Forms.DateTimePicker();
             this.lblpercen = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtgiam = new System.Windows.Forms.TextBox();
             this.lblmakm = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txttenkm = new System.Windows.Forms.TextBox();
             this.txtmakm = new System.Windows.Forms.TextBox();
             this.lbltenkm = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -344,7 +344,6 @@
             this.tpfood.TabIndex = 1;
             this.tpfood.Text = "Menu";
             this.tpfood.UseVisualStyleBackColor = true;
-            this.tpfood.Click += new System.EventHandler(this.tpfood_Click);
             // 
             // panel6
             // 
@@ -388,7 +387,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(267, 477);
             this.panel5.TabIndex = 2;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnthemanhmenu
             // 
@@ -546,7 +544,6 @@
             this.dtgvFood.Size = new System.Drawing.Size(522, 471);
             this.dtgvFood.TabIndex = 1;
             this.dtgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellClick);
-            this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
             // ID
             // 
@@ -777,7 +774,7 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.textBox8);
-            this.panel17.Controls.Add(this.button2);
+            this.panel17.Controls.Add(this.btntimkm);
             this.panel17.Location = new System.Drawing.Point(536, 6);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(267, 76);
@@ -790,14 +787,15 @@
             this.textBox8.Size = new System.Drawing.Size(160, 22);
             this.textBox8.TabIndex = 5;
             // 
-            // button2
+            // btntimkm
             // 
-            this.button2.Location = new System.Drawing.Point(168, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 70);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Tìm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btntimkm.Location = new System.Drawing.Point(168, 3);
+            this.btntimkm.Name = "btntimkm";
+            this.btntimkm.Size = new System.Drawing.Size(95, 70);
+            this.btntimkm.TabIndex = 4;
+            this.btntimkm.Text = "Tìm";
+            this.btntimkm.UseVisualStyleBackColor = true;
+            this.btntimkm.Click += new System.EventHandler(this.btntimkm_Click);
             // 
             // panel7
             // 
@@ -806,9 +804,9 @@
             this.panel7.Controls.Add(this.dtpkdayendkm);
             this.panel7.Controls.Add(this.dtpkdaystartkm);
             this.panel7.Controls.Add(this.lblpercen);
-            this.panel7.Controls.Add(this.textBox2);
+            this.panel7.Controls.Add(this.txtgiam);
             this.panel7.Controls.Add(this.lblmakm);
-            this.panel7.Controls.Add(this.textBox3);
+            this.panel7.Controls.Add(this.txttenkm);
             this.panel7.Controls.Add(this.txtmakm);
             this.panel7.Controls.Add(this.lbltenkm);
             this.panel7.Location = new System.Drawing.Point(537, 97);
@@ -857,13 +855,13 @@
             this.lblpercen.TabIndex = 45;
             this.lblpercen.Text = "giảm %";
             // 
-            // textBox2
+            // txtgiam
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 141);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 22);
-            this.textBox2.TabIndex = 44;
+            this.txtgiam.Location = new System.Drawing.Point(64, 141);
+            this.txtgiam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtgiam.Name = "txtgiam";
+            this.txtgiam.Size = new System.Drawing.Size(200, 22);
+            this.txtgiam.TabIndex = 44;
             // 
             // lblmakm
             // 
@@ -874,13 +872,13 @@
             this.lblmakm.TabIndex = 43;
             this.lblmakm.Text = "ID";
             // 
-            // textBox3
+            // txttenkm
             // 
-            this.textBox3.Location = new System.Drawing.Point(64, 83);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 41;
+            this.txttenkm.Location = new System.Drawing.Point(64, 83);
+            this.txttenkm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttenkm.Name = "txttenkm";
+            this.txttenkm.Size = new System.Drawing.Size(200, 22);
+            this.txttenkm.TabIndex = 41;
             // 
             // txtmakm
             // 
@@ -917,6 +915,7 @@
             this.btnsuakm.TabIndex = 2;
             this.btnsuakm.Text = "Sửa";
             this.btnsuakm.UseVisualStyleBackColor = true;
+            this.btnsuakm.Click += new System.EventHandler(this.btnsuakm_Click);
             // 
             // btnxoakm
             // 
@@ -926,6 +925,7 @@
             this.btnxoakm.TabIndex = 1;
             this.btnxoakm.Text = "Xóa";
             this.btnxoakm.UseVisualStyleBackColor = true;
+            this.btnxoakm.Click += new System.EventHandler(this.btnxoakm_Click);
             // 
             // btnaddkm
             // 
@@ -935,6 +935,7 @@
             this.btnaddkm.TabIndex = 0;
             this.btnaddkm.Text = "Thêm";
             this.btnaddkm.UseVisualStyleBackColor = true;
+            this.btnaddkm.Click += new System.EventHandler(this.btnaddkm_Click);
             // 
             // panel12
             // 
@@ -959,6 +960,7 @@
             this.dtgvdis.RowTemplate.Height = 24;
             this.dtgvdis.Size = new System.Drawing.Size(519, 471);
             this.dtgvdis.TabIndex = 1;
+            this.dtgvdis.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgcdis_CellClick);
             // 
             // IDMKM
             // 
@@ -1008,7 +1010,6 @@
             this.tpnhanvien.TabIndex = 4;
             this.tpnhanvien.Text = "Nhân viên";
             this.tpnhanvien.UseVisualStyleBackColor = true;
-            this.tpnhanvien.Click += new System.EventHandler(this.tpnhanvien_Click);
             // 
             // panel13
             // 
@@ -1241,7 +1242,6 @@
             this.dtgvnv.Size = new System.Drawing.Size(519, 471);
             this.dtgvnv.TabIndex = 1;
             this.dtgvnv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvnv_CellClick);
-            this.dtgvnv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvnv_CellContentClick);
             // 
             // IDEMPLOYEE
             // 
@@ -2008,16 +2008,16 @@
         private System.Windows.Forms.TabPage tpkhuyenmai;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btntimkm;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lbldayend;
         private System.Windows.Forms.Label lbldaybegin;
         private System.Windows.Forms.DateTimePicker dtpkdayendkm;
         private System.Windows.Forms.DateTimePicker dtpkdaystartkm;
         private System.Windows.Forms.Label lblpercen;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtgiam;
         private System.Windows.Forms.Label lblmakm;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txttenkm;
         private System.Windows.Forms.TextBox txtmakm;
         private System.Windows.Forms.Label lbltenkm;
         private System.Windows.Forms.Panel panel11;

@@ -10,17 +10,19 @@ namespace DAL.Entities
     public partial class ACCOUNT
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDTK { get; set; }
-
         [StringLength(100)]
         public string USERNAME { get; set; }
-
-        [StringLength(100)]
-        public string DISPLAYNAME { get; set; }
 
         [Required]
         [StringLength(100)]
         public string PASSWORD { get; set; }
+
+        public int? IDEMPLOYEE { get; set; }
+
+        public int? IDTYPETK { get; set; }
+
+        public virtual EMPLOYEE EMPLOYEE { get; set; }
+
+        public virtual TYPEACCOUNT TYPEACCOUNT { get; set; }
     }
 }

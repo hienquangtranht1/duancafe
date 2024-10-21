@@ -62,6 +62,7 @@
     <Compile Include="Entities\INVENTORY.cs" />
     <Compile Include="Entities\MENU.cs" />
     <Compile Include="Entities\TABLECOFFEE.cs" />
+    <Compile Include="Entities\TYPEACCOUNT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
