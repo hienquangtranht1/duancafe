@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class TABLECOFFEEService
+    internal class TABLECOFFEEService
     {
         public List<TABLECOFFEE> GetAll()
         {

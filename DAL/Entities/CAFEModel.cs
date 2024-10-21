@@ -22,6 +22,7 @@ namespace DAL.Entities
         public virtual DbSet<INVENTORY> INVENTORies { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<TABLECOFFEE> TABLECOFFEEs { get; set; }
+        public virtual DbSet<TYPEACCOUNT> TYPEACCOUNTs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

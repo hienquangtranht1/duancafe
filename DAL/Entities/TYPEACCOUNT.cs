@@ -6,38 +6,24 @@ namespace DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("EMPLOYEE")]
-    public partial class EMPLOYEE
+    [Table("TYPEACCOUNT")]
+    public partial class TYPEACCOUNT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMPLOYEE()
+        public TYPEACCOUNT()
         {
             ACCOUNTs = new HashSet<ACCOUNT>();
-            BILLINFOes = new HashSet<BILLINFO>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDEMPLOYEE { get; set; }
+        public int IDTYPETK { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string NAME { get; set; }
 
-        [StringLength(100)]
-        public string POSITION { get; set; }
-
-        public double? SALARY { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? DATE_HIRE { get; set; }
-
-        [StringLength(100)]
-        public string AVATAREMPLOYEE { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCOUNT> ACCOUNTs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLINFO> BILLINFOes { get; set; }
     }
 }
