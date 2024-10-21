@@ -40,5 +40,10 @@ namespace Cafe
             fm.Show();
             fm.FormClosed += (s, args) => this.Show();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

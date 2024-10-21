@@ -1,0 +1,11 @@
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\bin\Debug\Cafe.exe.config
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\bin\Debug\Cafe.exe
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\bin\Debug\Cafe.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.csproj.AssemblyReference.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.Form1.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.csproj.GenerateResource.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.csproj.CoreCompileInputs.cache
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.exe
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.pdb
+D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.Menu.resources
