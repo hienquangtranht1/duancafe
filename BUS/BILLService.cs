@@ -12,7 +12,7 @@ namespace BUS
         public List<BILL> GetAll()
         {
             CAFEModel model = new CAFEModel();
-            return model.BILL.ToList();
+            return model.BILLs.ToList();
         }
     }
 

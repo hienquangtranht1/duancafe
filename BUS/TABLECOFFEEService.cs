@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    internal class TABLECOFFEEService
+    public class TABLECOFFEEService
     {
         public List<TABLECOFFEE> GetAll()
         {
             CAFEModel model = new CAFEModel();
-            return model.TABLECOFFEE.ToList();
+            return model.TABLECOFFEEs.ToList();
         }
     }
 }

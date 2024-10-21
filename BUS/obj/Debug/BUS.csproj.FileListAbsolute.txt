@@ -13,18 +13,3 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.csproj.CoreComp
 D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.dll
 D:\hoc\bai tap moi truong windows\DemodoanCafe\BUS\obj\Debug\BUS.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.dll.config
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\BUS.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\DAL.dll.config
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.xml
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\BUS\obj\Debug\BUS.csproj.Up2Date

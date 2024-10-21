@@ -13,14 +13,14 @@ namespace BUS
         public List<MENU> GetAll()
         {
             CAFEModel model = new CAFEModel();
-            return model.MENU.ToList();
+            return model.MENUs.ToList();
         }
         public int GetMaxID()
         {
             using (CAFEModel model = new CAFEModel())
             {
                 // Nếu không có bản ghi nào trong bảng MENU, trả về 0
-                return model.MENU.Any() ? model.MENU.Max(m => m.IDMENU) : 0;
+                return model.MENUs.Any() ? model.MENUs.Max(m => m.IDMENU) : 0;
             }
         }
 
@@ -30,7 +30,7 @@ namespace BUS
             {
                 using (CAFEModel model = new CAFEModel())
                 {
-                    model.MENU.Add(menu);
+                    model.MENUs.Add(menu);
                     model.SaveChanges();
                 }
                 return (true, "Thêm món thành công.");
@@ -50,7 +50,7 @@ namespace BUS
             using (CAFEModel model = new CAFEModel())
             {
                 // Tìm món ăn theo IDMENU
-                return model.MENU.SingleOrDefault(m => m.IDMENU == menuID);
+                return model.MENUs.SingleOrDefault(m => m.IDMENU == menuID);
             }
         }
         public (bool success, string message) DeleteById(int menuID)
@@ -59,10 +59,10 @@ namespace BUS
             {
                 using (CAFEModel model = new CAFEModel())
                 {
-                    var menuItem = model.MENU.SingleOrDefault(m => m.IDMENU == menuID);
+                    var menuItem = model.MENUs.SingleOrDefault(m => m.IDMENU == menuID);
                     if (menuItem != null)
                     {
-                        model.MENU.Remove(menuItem);
+                        model.MENUs.Remove(menuItem);
                         model.SaveChanges();
                         return (true, "Xóa món ăn thành công.");
                     }
@@ -93,7 +93,7 @@ namespace BUS
             using (CAFEModel model = new CAFEModel())
             {
                 // Tìm món ăn theo IDMENU
-                var existingMenuItem = model.MENU.SingleOrDefault(m => m.IDMENU == menu.IDMENU);
+                var existingMenuItem = model.MENUs.SingleOrDefault(m => m.IDMENU == menu.IDMENU);
                 if (existingMenuItem == null)
                 {
                     return (false, "Không tìm thấy món ăn để cập nhật.");
@@ -123,6 +123,3 @@ namespace BUS
         }
     }
 }
-    
-   
-

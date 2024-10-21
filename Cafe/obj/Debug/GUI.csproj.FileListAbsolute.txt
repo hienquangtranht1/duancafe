@@ -21,26 +21,3 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.CoreCom
 D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.exe
 D:\hoc\bai tap moi truong windows\DemodoanCafe\Cafe\obj\Debug\Cafe.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.Admin.resources
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.Form1.resources
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.Menu.resources
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.exe
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\Cafe.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\Cafe.exe.config
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\Cafe.exe
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\Cafe.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\BUS.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\DAL.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\BUS.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\BUS.dll.config
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\DAL.pdb
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\DAL.dll.config
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.xml
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\HOANG  ANH\Desktop\DemodoanCafe\Cafe\obj\Debug\GUI.csproj.Up2Date

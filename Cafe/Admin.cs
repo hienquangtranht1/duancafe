@@ -20,7 +20,8 @@ namespace Cafe
         private readonly COFFEETYPEService cOFFEETYPEService = new COFFEETYPEService();
         private string avartarFilePath = string.Empty;
         private readonly EMPLOYEEService employeeService = new EMPLOYEEService();
-
+        private readonly TABLECOFFEEService table = new BUS.TABLECOFFEEService();
+        private readonly DISCOUNTService discountService = new DISCOUNTService();
         public Admin()
         {
             InitializeComponent();
@@ -35,12 +36,11 @@ namespace Cafe
                 var listcoffee = cOFFEETYPEService.GetAll();
                 FillCoffeetypeCombobox(listcoffee);
                 BindGrid(listmenu);
-
-
                 setGridViewStyle(dtgvnv);
                 var listEmployee = employeeService.GetAll();
-                BindGridEmployees(listEmployee); // Gọi hàm để bind danh sách nhân viên
-
+                BindGridEmployees(listEmployee); 
+                var listDiscount = discountService.GetAll();
+                BindGridDiscount(listDiscount);
 
             }
             catch (Exception ex)
@@ -50,6 +50,8 @@ namespace Cafe
 
 
         }
+
+
         public void setGridViewStyle(DataGridView dgview)
         {
             dgview.BorderStyle = BorderStyle.None;
@@ -72,118 +74,63 @@ namespace Cafe
             foreach (var item in listmenus)
             {
                 int index = dtgvFood.Rows.Add();
-                dtgvFood.Rows[index].Cells[0].Value = item.IDMENU; // IDMENU
-                dtgvFood.Rows[index].Cells[1].Value = item.IDTYPE; // IDTYPE (Có thể không cần nếu chỉ hiển thị tên loại)
-                dtgvFood.Rows[index].Cells[2].Value = item.NAME; // NAME
+                dtgvFood.Rows[index].Cells[0].Value = item.IDMENU; 
+                dtgvFood.Rows[index].Cells[1].Value = item.IDTYPE; 
+                dtgvFood.Rows[index].Cells[2].Value = item.NAME; 
                 if (item.COFFEETYPE != null)
                 {
-                    dtgvFood.Rows[index].Cells[3].Value = item.COFFEETYPE.NAME; // Tên loại cà phê
+                    dtgvFood.Rows[index].Cells[3].Value = item.COFFEETYPE.NAME; 
                 }
-                dtgvFood.Rows[index].Cells[4].Value = item.PRICE; // PRICE
+                dtgvFood.Rows[index].Cells[4].Value = item.PRICE; 
             }
         }
         private void BindGridEmployees(List<EMPLOYEE> employees)
         {
-            dtgvnv.Rows.Clear(); // Xóa các dòng hiện có
+            dtgvnv.Rows.Clear();
             foreach (var employee in employees)
             {
                 int index = dtgvnv.Rows.Add();
-                dtgvnv.Rows[index].Cells[0].Value = employee.IDEMPLOYEE; // IDEMPLOYEE
-                dtgvnv.Rows[index].Cells[1].Value = employee.NAME; // NAME
-                dtgvnv.Rows[index].Cells[2].Value = employee.POSITION; // POSITION
-                dtgvnv.Rows[index].Cells[3].Value = employee.SALARY; // SALARY
-                dtgvnv.Rows[index].Cells[4].Value = employee.DATE_HIRE?.ToString("dd/MM/yyyy"); // DATE_HIRE
-      
+                dtgvnv.Rows[index].Cells[0].Value = employee.IDEMPLOYEE; 
+                dtgvnv.Rows[index].Cells[1].Value = employee.NAME; 
+                dtgvnv.Rows[index].Cells[2].Value = employee.POSITION; 
+                dtgvnv.Rows[index].Cells[3].Value = employee.SALARY; 
+                dtgvnv.Rows[index].Cells[4].Value = employee.DATE_HIRE?.ToString("dd/MM/yyyy"); 
+
             }
         }
+        private void BindGridDiscount(List<DISCOUNT> listDiscount)
+        {
+            dtgvdis.Rows.Clear();
+            foreach (var item in listDiscount)
+            {
+                int index = dtgvdis.Rows.Add();
+                dtgvdis.Rows[index].Cells[0].Value = item.IDDIS;
+                dtgvdis.Rows[index].Cells[1].Value = item.NAME;
+                dtgvdis.Rows[index].Cells[2].Value = item.DISCOUNT_PERCENTAGE;
+                dtgvdis.Rows[index].Cells[3].Value = item.DATE_START;
+                dtgvdis.Rows[index].Cells[4].Value = item.DATE_FINISH;
+            }
+        }
+
         private void tpfood_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnaddfood_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Kiểm tra các trường cần thiết đã được điền chưa
-                if (string.IsNullOrEmpty(txttensp.Text) || string.IsNullOrEmpty(txtgiadoan.Text) || cboloaisp.SelectedValue == null)
-                {
-                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra xem giá trị của "txtgiadoan" có phải là số hợp lệ hay không
-                if (!float.TryParse(txtgiadoan.Text, out float price) || price <= 0)
-                {
-                    MessageBox.Show("Giá không hợp lệ. Vui lòng nhập số hợp lệ lớn hơn 0.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Lấy IDMENU lớn nhất hiện có từ cơ sở dữ liệu
-                int newIDMenu = menuService.GetMaxID() + 1;
-
-                // Tạo đối tượng MENU mới
-                MENU newMenuItem = new MENU
-                {
-                    IDMENU = newIDMenu,  // Gán ID mới không trùng lặp
-                    NAME = txttensp.Text,
-                    PRICE = price,
-                    IDTYPE = (int)cboloaisp.SelectedValue,
-                    AVATARMENU = avartarFilePath
-                };
-
-                // Gọi service để thêm món mới
-                var (result, message) = menuService.Add(newMenuItem);
-
-                // Hiển thị kết quả cho người dùng
-                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
-
-                // Nếu thêm thành công, cập nhật lại danh sách món
-                if (result)
-                {
-                    var listmenu = menuService.GetAll();
-                    BindGrid(listmenu);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
-        
-        private void dtgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dtgvFood.Rows[e.RowIndex];
-                int menuID = (int)selectedRow.Cells[0].Value;  // Lấy ID của món ăn từ cột đầu tiên
-                ShowAvatar(menuID);  // Hiển thị avatar của món ăn
-
-                txttensp.Text = selectedRow.Cells[2].Value.ToString();  // Điền tên món ăn vào textbox
-                txtgiadoan.Text = selectedRow.Cells[4].Value.ToString();  // Điền giá món ăn vào textbox
-
-                // Lấy tên loại cà phê từ cột thích hợp và điền vào textbox
-                // Giả sử tên loại cà phê nằm ở cột thứ 3 (có thể điều chỉnh nếu cần)
-                string tenLoai = selectedRow.Cells[3].Value.ToString(); // Thay đổi chỉ số cột nếu cần
-                cboloaisp.Text = tenLoai;  // Điền tên loại vào textbox
-            }
-        }
         private void ShowAvatar(int menuID)
         {
             string folderPath = Path.Combine(Application.StartupPath, "Images");
-            var menuItem = menuService.FindById(menuID);  // Sử dụng dịch vụ MENU để tìm món ăn theo ID
-            if (menuItem != null && !string.IsNullOrEmpty(menuItem.AVATARMENU))  // Kiểm tra nếu món có avatar
+            var menuItem = menuService.FindById(menuID);  
+            if (menuItem != null && !string.IsNullOrEmpty(menuItem.AVATARMENU))  
             {
-                string avatarFilePath = Path.Combine(folderPath, menuItem.AVATARMENU);  // Đường dẫn tới avatar
+                string avatarFilePath = Path.Combine(folderPath, menuItem.AVATARMENU);  
                 if (File.Exists(avatarFilePath))
                 {
-                    pictureBox1.Image = Image.FromFile(avatarFilePath);  // Hiển thị avatar trong PictureBox
+                    pictureBox1.Image = Image.FromFile(avatarFilePath);  
                 }
                 else
                 {
-                    pictureBox1.Image = null;  // Nếu không tìm thấy file avatar, không hiển thị ảnh
+                    pictureBox1.Image = null;  
                 }
             }
         }
@@ -194,18 +141,18 @@ namespace Cafe
                 string folderPath = Path.Combine(Application.StartupPath, "Images");
                 if (!Directory.Exists(folderPath))
                 {
-                    Directory.CreateDirectory(folderPath);  // Tạo thư mục "Images" nếu chưa tồn tại
+                    Directory.CreateDirectory(folderPath);  
                 }
 
-                string fileExtension = Path.GetExtension(sourceFilePath);  // Lấy phần mở rộng của file ảnh
-                string targetFilePath = Path.Combine(folderPath, $"{menuID}{fileExtension}");  // Đường dẫn lưu ảnh với tên dựa trên menuID
+                string fileExtension = Path.GetExtension(sourceFilePath); 
+                string targetFilePath = Path.Combine(folderPath, $"{menuID}{fileExtension}"); 
                 if (!File.Exists(sourceFilePath))
                 {
                     throw new FileNotFoundException($"Không tìm thấy file: {sourceFilePath}");
                 }
 
-                File.Copy(sourceFilePath, targetFilePath, true);  // Sao chép file ảnh đến thư mục, ghi đè nếu có
-                return $"{menuID}{fileExtension}";  // Trả về tên file đã lưu
+                File.Copy(sourceFilePath, targetFilePath, true);  
+                return $"{menuID}{fileExtension}"; 
             }
             catch (Exception ex)
             {
@@ -224,6 +171,78 @@ namespace Cafe
 
         }
 
+
+
+
+     
+
+
+ 
+
+        private void tpnhanvien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+ 
+
+ 
+
+
+
+
+
+
+
+    
+
+        private void ShowAvatarnv(int employeeID)
+        {
+            string folderPath = Path.Combine(Application.StartupPath, "Images");
+            var employee = employeeService.FindBynvId(employeeID);  
+            if (employee != null && !string.IsNullOrEmpty(employee.AVATAREMPLOYEE))  
+            {
+                string avatarFilePath = Path.Combine(folderPath, employee.AVATAREMPLOYEE);  
+                if (File.Exists(avatarFilePath))
+                {
+                    pictureBox2.Image = Image.FromFile(avatarFilePath);  
+                }
+                else
+                {
+                    pictureBox2.Image = null;  
+                }
+            }
+        }
+
+        private string SaveAvatarnv(string sourceFilePath, int employeeID)
+        {
+            try
+            {
+                string folderPath = Path.Combine(Application.StartupPath, "Images");
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath); 
+                }
+
+                string fileExtension = Path.GetExtension(sourceFilePath);
+                string targetFilePath = Path.Combine(folderPath, $"{employeeID}{fileExtension}");  
+                if (!File.Exists(sourceFilePath))
+                {
+                    throw new FileNotFoundException($"Không tìm thấy file: {sourceFilePath}");
+                }
+
+                File.Copy(sourceFilePath, targetFilePath, true);  
+                return $"{employeeID}{fileExtension}";  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lưu avatar: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+
+
         private void btnthemanhmenu_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -231,18 +250,92 @@ namespace Cafe
                 openFileDialog.Filter = "Image File (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    avartarFilePath = openFileDialog.FileName;  // Lưu đường dẫn của file ảnh đã chọn
-                    pictureBox1.Image = Image.FromFile(avartarFilePath);  // Hiển thị ảnh đã chọn lên PictureBox
+                    avartarFilePath = openFileDialog.FileName;  
+                    pictureBox1.Image = Image.FromFile(avartarFilePath); 
 
-                    // Lưu avatar vào thư mục và cập nhật avatar cho món ăn
-                    int menuID = menuService.GetMaxID() + 1;  // Lấy ID mới nhất hoặc ID của món ăn đang chỉnh sửa
+                    int menuID = menuService.GetMaxID() + 1; 
                     string savedAvatarFileName = SaveAvatar(avartarFilePath, menuID);
 
                     if (savedAvatarFileName != null)
                     {
-                        avartarFilePath = savedAvatarFileName;  // Cập nhật đường dẫn avatar vào biến nếu lưu thành công
+                        avartarFilePath = savedAvatarFileName;  
                     }
                 }
+            }
+        }
+
+        private void dgvnv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvnv.Rows[e.RowIndex];
+
+                txtidnv.Text = selectedRow.Cells[0].Value?.ToString(); 
+                txttennv.Text = selectedRow.Cells[1].Value?.ToString(); 
+                txtchucvunv.Text = selectedRow.Cells[2].Value?.ToString(); 
+                txtluongnv.Text = selectedRow.Cells[3].Value?.ToString(); 
+
+                int employeeID = (int)selectedRow.Cells[0].Value; 
+                ShowAvatarnv(employeeID);
+            }
+        }
+
+        private void dgvmenu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvFood.Rows[e.RowIndex];
+                int menuID = (int)selectedRow.Cells[0].Value;  
+                ShowAvatar(menuID);  
+
+                txttensp.Text = selectedRow.Cells[2].Value.ToString(); 
+                txtgiadoan.Text = selectedRow.Cells[4].Value.ToString();  
+
+                string tenLoai = selectedRow.Cells[3].Value.ToString();
+                cboloaisp.Text = tenLoai;  
+            }
+        }
+
+        private void btnaddfood_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txttensp.Text) || string.IsNullOrEmpty(txtgiadoan.Text) || cboloaisp.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!float.TryParse(txtgiadoan.Text, out float price) || price <= 0)
+                {
+                    MessageBox.Show("Giá không hợp lệ. Vui lòng nhập số hợp lệ lớn hơn 0.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int newIDMenu = menuService.GetMaxID() + 1;
+
+                MENU newMenuItem = new MENU
+                {
+                    IDMENU = newIDMenu,  
+                    NAME = txttensp.Text,
+                    PRICE = price,
+                    IDTYPE = (int)cboloaisp.SelectedValue,
+                    AVATARMENU = avartarFilePath
+                };
+
+                var (result, message) = menuService.Add(newMenuItem);
+
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                if (result)
+                {
+                    var listmenu = menuService.GetAll();
+                    BindGrid(listmenu);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -250,26 +343,21 @@ namespace Cafe
         {
             try
             {
-                // Kiểm tra xem người dùng đã chọn dòng nào trong DataGridView chưa
                 if (dtgvFood.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = dtgvFood.SelectedRows[0];
-                    int menuID = (int)selectedRow.Cells[0].Value;  // Lấy ID của món ăn từ cột đầu tiên
+                    int menuID = (int)selectedRow.Cells[0].Value;  
 
-                    // Hỏi người dùng xem có chắc chắn muốn xóa món này không
                     var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa món ăn này?",
                                                         "Xác nhận xóa",
                                                         MessageBoxButtons.YesNo,
                                                         MessageBoxIcon.Question);
                     if (confirmResult == DialogResult.Yes)
                     {
-                        // Gọi phương thức DeleteById để xóa món ăn
                         var (result, message) = menuService.DeleteById(menuID);
 
-                        // Hiển thị thông báo cho người dùng
                         MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                        // Nếu xóa thành công, cập nhật lại danh sách món
                         if (result)
                         {
                             var listmenu = menuService.GetAll();
@@ -292,43 +380,35 @@ namespace Cafe
         {
             try
             {
-                // Kiểm tra xem người dùng đã chọn dòng nào trong DataGridView chưa
                 if (dtgvFood.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = dtgvFood.SelectedRows[0];
-                    int menuID = (int)selectedRow.Cells[0].Value;  // Lấy ID của món ăn từ cột đầu tiên
-
-                    // Kiểm tra các trường cần thiết đã được điền chưa
+                    int menuID = (int)selectedRow.Cells[0].Value;  
                     if (string.IsNullOrEmpty(txttensp.Text) || string.IsNullOrEmpty(txtgiadoan.Text) || cboloaisp.SelectedValue == null)
                     {
                         MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Kiểm tra xem giá trị của "txtgiadoan" có phải là số hợp lệ hay không
                     if (!float.TryParse(txtgiadoan.Text, out float price) || price <= 0)
                     {
                         MessageBox.Show("Giá không hợp lệ. Vui lòng nhập số hợp lệ lớn hơn 0.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Tạo đối tượng MENU mới với thông tin đã cập nhật
                     MENU updatedMenuItem = new MENU
                     {
                         IDMENU = menuID,
                         NAME = txttensp.Text,
                         PRICE = price,
                         IDTYPE = (int)cboloaisp.SelectedValue,
-                        AVATARMENU = avartarFilePath  // Có thể để rỗng nếu không muốn cập nhật avatar
+                        AVATARMENU = avartarFilePath  
                     };
 
-                    // Gọi service để cập nhật món ăn
                     var (result, message) = menuService.Update(updatedMenuItem);
 
-                    // Hiển thị thông báo cho người dùng
                     MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                    // Nếu cập nhật thành công, cập nhật lại danh sách món
                     if (result)
                     {
                         var listmenu = menuService.GetAll();
@@ -346,46 +426,12 @@ namespace Cafe
             }
         }
 
-        
 
-        private void dtgvnv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tpnhanvien_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnfindfood_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Lấy từ khóa tìm kiếm từ textbox
-                string searchTerm = txtfoodname.Text.Trim();
-
-                // Lấy danh sách tất cả các món ăn từ dịch vụ
-                var listMenu = menuService.GetAll();
-
-                // Lọc danh sách món ăn theo từ khóa tìm kiếm chỉ theo tên
-                var filteredMenu = listMenu.Where(item =>
-                    item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
-                // Hiển thị danh sách đã lọc trong DataGridView
-                BindGrid(filteredMenu);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void btnaddnhanvien_Click(object sender, EventArgs e)
         {
             try
             {
-                // Kiểm tra các trường cần thiết đã được điền chưa
                 if (string.IsNullOrEmpty(txtidnv.Text) ||
                     string.IsNullOrEmpty(txttennv.Text) ||
                     string.IsNullOrEmpty(txtchucvunv.Text) ||
@@ -395,35 +441,30 @@ namespace Cafe
                     return;
                 }
 
-                // Kiểm tra xem giá trị của "txtSalary" có phải là số hợp lệ hay không
                 if (!decimal.TryParse(txtluongnv.Text, out decimal salary) || salary < 0)
                 {
                     MessageBox.Show("Lương không hợp lệ. Vui lòng nhập số hợp lệ không âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Tạo đối tượng EMPLOYEE mới
                 EMPLOYEE newEmployee = new EMPLOYEE
                 {
-                    IDEMPLOYEE = int.Parse(txtidnv.Text.Trim()), // Gán ID nhân viên từ txtidnv
+                    IDEMPLOYEE = int.Parse(txtidnv.Text.Trim()), 
                     NAME = txttennv.Text.Trim(),
                     POSITION = txtchucvunv.Text.Trim(),
                     SALARY = (double?)salary,
-                    DATE_HIRE = DateTime.Now,  // Gán ngày thuê hiện tại
-                    AVATAREMPLOYEE = avartarFilePath  // Nếu có avatar, gán đường dẫn vào đây
+                    DATE_HIRE = DateTime.Now, 
+                    AVATAREMPLOYEE = avartarFilePath  
                 };
 
-                // Gọi service để thêm nhân viên mới
                 var (result, message) = employeeService.Add(newEmployee);
 
-                // Hiển thị kết quả cho người dùng
                 MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                // Nếu thêm thành công, cập nhật lại danh sách nhân viên
                 if (result)
                 {
                     var listEmployee = employeeService.GetAll();
-                    BindGridEmployees(listEmployee);  // Gọi hàm để bind danh sách nhân viên
+                    BindGridEmployees(listEmployee); 
                 }
             }
             catch (Exception ex)
@@ -436,30 +477,25 @@ namespace Cafe
         {
             try
             {
-                // Kiểm tra xem người dùng đã chọn dòng nào trong DataGridView chưa
                 if (dtgvnv.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = dtgvnv.SelectedRows[0];
-                    int employeeID = (int)selectedRow.Cells[0].Value;  // Lấy ID của nhân viên từ cột đầu tiên
+                    int employeeID = (int)selectedRow.Cells[0].Value;  
 
-                    // Hỏi người dùng xem có chắc chắn muốn xóa nhân viên này không
                     var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?",
                                                         "Xác nhận xóa",
                                                         MessageBoxButtons.YesNo,
                                                         MessageBoxIcon.Question);
                     if (confirmResult == DialogResult.Yes)
                     {
-                        // Gọi phương thức DeleteById để xóa nhân viên
                         var (result, message) = employeeService.DeleteById(employeeID);
 
-                        // Hiển thị thông báo cho người dùng
                         MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                        // Nếu xóa thành công, cập nhật lại danh sách nhân viên
                         if (result)
                         {
                             var listEmployee = employeeService.GetAll();
-                            BindGridEmployees(listEmployee);  // Gọi hàm để bind danh sách nhân viên
+                            BindGridEmployees(listEmployee);  
                         }
                     }
                 }
@@ -474,17 +510,34 @@ namespace Cafe
             }
         }
 
+        private void btnfindfood_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchTerm = txtfoodname.Text.Trim();
+
+                var listMenu = menuService.GetAll();
+
+                var filteredMenu = listMenu.Where(item =>
+                    item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+
+                BindGrid(filteredMenu);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnsuanv_Click(object sender, EventArgs e)
         {
             try
             {
-                // Check if a row is selected
                 if (dtgvnv.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = dtgvnv.SelectedRows[0];
                     int employeeID = (int)selectedRow.Cells[0].Value;  // Get the selected employee's ID
 
-                    // Validate required fields
                     if (string.IsNullOrEmpty(txtidnv.Text) ||
                         string.IsNullOrEmpty(txttennv.Text) ||
                         string.IsNullOrEmpty(txtchucvunv.Text) ||
@@ -494,31 +547,26 @@ namespace Cafe
                         return;
                     }
 
-                    // Validate salary input
                     if (!decimal.TryParse(txtluongnv.Text, out decimal salary) || salary < 0)
                     {
                         MessageBox.Show("Lương không hợp lệ. Vui lòng nhập số hợp lệ không âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Create the updated employee object
                     EMPLOYEE updatedEmployee = new EMPLOYEE
                     {
                         IDEMPLOYEE = employeeID,
                         NAME = txttennv.Text.Trim(),
                         POSITION = txtchucvunv.Text.Trim(),
                         SALARY = (double?)salary,
-                        DATE_HIRE = DateTime.Now,  // Assuming you don't want to change the hire date
-                        AVATAREMPLOYEE = avartarFilePath  // Update the avatar path if applicable
+                        DATE_HIRE = DateTime.Now, 
+                        AVATAREMPLOYEE = avartarFilePath  
                     };
 
-                    // Call the service to update the employee
                     var (result, message) = employeeService.Update(updatedEmployee);
 
-                    // Show the result to the user
                     MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                    // If the update was successful, refresh the employee list
                     if (result)
                     {
                         var listEmployee = employeeService.GetAll();
@@ -540,28 +588,24 @@ namespace Cafe
         {
             try
             {
-                // Get the name from a text box (assuming you have a text box named txtSearchName)
                 string searchName = txttimidnv.Text.Trim();
 
-                // Validate the input
                 if (string.IsNullOrEmpty(searchName))
                 {
                     MessageBox.Show("Vui lòng nhập tên nhân viên để tìm kiếm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Call the service to find employees by name
                 List<EMPLOYEE> foundEmployees = employeeService.FindByName(searchName);
 
-                // Check if any employees were found
                 if (foundEmployees != null && foundEmployees.Count > 0)
                 {
-                    BindGridEmployees(foundEmployees); // Bind the found employees to the DataGridView
+                    BindGridEmployees(foundEmployees); 
                 }
                 else
                 {
                     MessageBox.Show("Không tìm thấy nhân viên nào với tên đã nhập.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dtgvnv.Rows.Clear(); // Clear the DataGridView if no employees are found
+                    dtgvnv.Rows.Clear(); 
                 }
             }
             catch (Exception ex)
@@ -577,18 +621,16 @@ namespace Cafe
                 openFileDialog.Filter = "Image File (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    avartarFilePath = openFileDialog.FileName;  // Lưu đường dẫn của file ảnh đã chọn
-                    pictureBox2.Image = Image.FromFile(avartarFilePath);  // Hiển thị ảnh đã chọn lên PictureBox
+                    avartarFilePath = openFileDialog.FileName;  
+                    pictureBox2.Image = Image.FromFile(avartarFilePath);  
 
-                    // Lấy ID nhân viên từ TextBox (txtidnv)
                     if (int.TryParse(txtidnv.Text.Trim(), out int IDEMPLOYEE))
                     {
-                        // Lưu avatar vào thư mục và cập nhật avatar cho nhân viên
                         string savedAvatarFileName = SaveAvatarnv(avartarFilePath, IDEMPLOYEE);
 
                         if (savedAvatarFileName != null)
                         {
-                            avartarFilePath = savedAvatarFileName;  // Cập nhật đường dẫn avatar vào biến nếu lưu thành công
+                            avartarFilePath = savedAvatarFileName; 
                         }
                         else
                         {
@@ -602,69 +644,8 @@ namespace Cafe
                 }
             }
         }
-        private void ShowAvatarnv(int employeeID)
-        {
-            string folderPath = Path.Combine(Application.StartupPath, "Images");
-            var employee = employeeService.FindBynvId(employeeID);  // Sử dụng dịch vụ EMPLOYEEService để tìm nhân viên theo ID
-            if (employee != null && !string.IsNullOrEmpty(employee.AVATAREMPLOYEE))  // Kiểm tra nếu nhân viên có avatar
-            {
-                string avatarFilePath = Path.Combine(folderPath, employee.AVATAREMPLOYEE);  // Đường dẫn tới avatar
-                if (File.Exists(avatarFilePath))
-                {
-                    pictureBox2.Image = Image.FromFile(avatarFilePath);  // Hiển thị avatar trong PictureBox
-                }
-                else
-                {
-                    pictureBox2.Image = null;  // Nếu không tìm thấy file avatar, không hiển thị ảnh
-                }
-            }
-        }
 
-        private string SaveAvatarnv (string sourceFilePath, int employeeID)
-        {
-            try
-            {
-                string folderPath = Path.Combine(Application.StartupPath, "Images");
-                if (!Directory.Exists(folderPath))
-                {
-                    Directory.CreateDirectory(folderPath);  // Tạo thư mục "Images" nếu chưa tồn tại
-                }
 
-                string fileExtension = Path.GetExtension(sourceFilePath);  // Lấy phần mở rộng của file ảnh
-                string targetFilePath = Path.Combine(folderPath, $"{employeeID}{fileExtension}");  // Đường dẫn lưu ảnh với tên dựa trên employeeID
-                if (!File.Exists(sourceFilePath))
-                {
-                    throw new FileNotFoundException($"Không tìm thấy file: {sourceFilePath}");
-                }
-
-                File.Copy(sourceFilePath, targetFilePath, true);  // Sao chép file ảnh đến thư mục, ghi đè nếu có
-                return $"{employeeID}{fileExtension}";  // Trả về tên file đã lưu
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi lưu avatar: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-        }
-
-        private void dtgvnv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Ensure that the clicked cell is not a header cell
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dtgvnv.Rows[e.RowIndex];
-
-                // Populate the text boxes with the selected employee's details
-                txtidnv.Text = selectedRow.Cells[0].Value?.ToString(); // IDEMPLOYEE
-                txttennv.Text = selectedRow.Cells[1].Value?.ToString(); // NAME
-                txtchucvunv.Text = selectedRow.Cells[2].Value?.ToString(); // POSITION
-                txtluongnv.Text = selectedRow.Cells[3].Value?.ToString(); // SALARY
-
-                // Optionally show the avatar if necessary
-                int employeeID = (int)selectedRow.Cells[0].Value; // Assuming the first column is IDEMPLOYEE
-                ShowAvatarnv(employeeID);
-            }
-        }
+    
     }
-    }
-
+}

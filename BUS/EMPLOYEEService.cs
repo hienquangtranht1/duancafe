@@ -13,7 +13,7 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                return model.EMPLOYEE.ToList();
+                return model.EMPLOYEEs.ToList();
             }
         }
 
@@ -24,7 +24,7 @@ namespace BUS
             {
                 using (CAFEModel model = new CAFEModel())
                 {
-                    model.EMPLOYEE.Add(employee);
+                    model.EMPLOYEEs.Add(employee);
                     model.SaveChanges();
                 }
                 return (true, "Thêm nhân viên thành công.");
@@ -35,20 +35,18 @@ namespace BUS
             }
         }
 
-        // Cập nhật thông tin nhân viên
         public (bool result, string message) Update(EMPLOYEE employee)
         {
             try
             {
                 using (CAFEModel model = new CAFEModel())
                 {
-                    var existingEmployee = model.EMPLOYEE.Find(employee.IDEMPLOYEE);
+                    var existingEmployee = model.EMPLOYEEs.Find(employee.IDEMPLOYEE);
                     if (existingEmployee == null)
                     {
                         return (false, "Nhân viên không tồn tại.");
                     }
 
-                    // Cập nhật thông tin nhân viên
                     existingEmployee.NAME = employee.NAME;
                     existingEmployee.POSITION = employee.POSITION;
                     existingEmployee.SALARY = employee.SALARY;
@@ -72,13 +70,13 @@ namespace BUS
             {
                 using (CAFEModel model = new CAFEModel())
                 {
-                    var employee = model.EMPLOYEE.Find(id);
+                    var employee = model.EMPLOYEEs.Find(id);
                     if (employee == null)
                     {
                         return (false, "Nhân viên không tồn tại.");
                     }
 
-                    model.EMPLOYEE.Remove(employee);
+                    model.EMPLOYEEs.Remove(employee);
                     model.SaveChanges();
                 }
                 return (true, "Xóa nhân viên thành công.");
@@ -93,7 +91,7 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                return model.EMPLOYEE
+                return model.EMPLOYEEs
                             .Where(e => e.NAME.Contains(name)) // Adjust this condition as needed
                             .ToList();
             }
@@ -102,7 +100,7 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                return model.EMPLOYEE.Find(id);
+                return model.EMPLOYEEs.Find(id);
             }
         }
     }
