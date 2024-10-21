@@ -58,3 +58,18 @@ D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
 D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.dll
 D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\BUS.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\BUS.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\BUS.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\DAL.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\EntityFramework.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\DAL.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\DAL.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\EntityFramework.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.pdb

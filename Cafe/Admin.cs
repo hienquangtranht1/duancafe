@@ -48,6 +48,9 @@ namespace Cafe
                 setGridViewStyle(dataGridView1);
                 var listtable = table.GetAll();
                 BindGridTable(listtable);
+                setGridViewStyle(dataGridView3);
+                var listtype = cOFFEETYPEService.GetAll();
+                BindGridCoffeeType(listtype);
 
 
 
@@ -911,6 +914,162 @@ namespace Cafe
                 var filteredTables = listTables.Where(item =>
                     item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 BindGridTable(filteredTables);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void BindGridCoffeeType(List<COFFEETYPE> type)
+        {
+            dataGridView3.Rows.Clear();
+            foreach (var types in type)
+            {
+                int index = dataGridView3.Rows.Add();
+                dataGridView3.Rows[index].Cells[0].Value = types.IDTYPE;
+                dataGridView3.Rows[index].Cells[1].Value = types.NAME;
+                dataGridView3.Rows[index].Cells[2].Value = types.NSX;
+                dataGridView3.Rows[index].Cells[3].Value = types.ORIGIN;
+
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dataGridViewRow = dataGridView3.Rows[e.RowIndex];
+                textBox20.Text = dataGridViewRow.Cells[0].Value.ToString();
+                textBox19.Text = dataGridViewRow.Cells[1].Value.ToString();
+                dateTimePicker3.Text = dataGridViewRow.Cells[2].Value.ToString();
+                textBox1.Text = dataGridViewRow.Cells[3].Value.ToString();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa loại cà phê này?",
+                                                         "Xác nhận xóa",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = cOFFEETYPEService.DeleteById(coffeeTypeID);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                            BindGridCoffeeType(listCoffeeTypes);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView3.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa loại cà phê này?",
+                                                         "Xác nhận xóa",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = cOFFEETYPEService.DeleteById(coffeeTypeID);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                            BindGridCoffeeType(listCoffeeTypes);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView3.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+
+                    if (string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox10.Text))
+                    {
+                        MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    COFFEETYPE updatedCoffeeType = new COFFEETYPE
+                    {
+                        IDTYPE = coffeeTypeID,
+                        NAME = textBox19.Text,
+                        ORIGIN = textBox20.Text,
+                        NSX = dateTimePicker3.Value
+                    };
+
+                    var (result, message) = cOFFEETYPEService.Update(updatedCoffeeType);
+                    MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                    if (result)
+                    {
+                        var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                        BindGridCoffeeType(listCoffeeTypes);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchTerm = textBox17.Text.Trim();
+                var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                var filteredCoffeeTypes = listCoffeeTypes.Where(item =>
+                    item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                BindGridCoffeeType(filteredCoffeeTypes);
             }
             catch (Exception ex)
             {

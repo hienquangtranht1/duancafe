@@ -187,6 +187,8 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -202,6 +204,7 @@
             this.MALOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENLOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1743,9 +1746,12 @@
             this.button11.TabIndex = 4;
             this.button11.Text = "Tìm";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // panel27
             // 
+            this.panel27.Controls.Add(this.textBox1);
+            this.panel27.Controls.Add(this.label9);
             this.panel27.Controls.Add(this.label10);
             this.panel27.Controls.Add(this.dateTimePicker3);
             this.panel27.Controls.Add(this.label12);
@@ -1757,10 +1763,27 @@
             this.panel27.Size = new System.Drawing.Size(267, 483);
             this.panel27.TabIndex = 10;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(82, 125);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(182, 22);
+            this.textBox1.TabIndex = 52;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 128);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 16);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Nguồn Gốc";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 115);
+            this.label10.Location = new System.Drawing.Point(11, 174);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 16);
             this.label10.TabIndex = 50;
@@ -1768,7 +1791,7 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(82, 110);
+            this.dateTimePicker3.Location = new System.Drawing.Point(82, 168);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(182, 22);
             this.dateTimePicker3.TabIndex = 49;
@@ -1825,6 +1848,7 @@
             this.button13.TabIndex = 2;
             this.button13.Text = "Sửa";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -1834,6 +1858,7 @@
             this.button14.TabIndex = 1;
             this.button14.Text = "Xóa";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -1843,6 +1868,7 @@
             this.button15.TabIndex = 0;
             this.button15.Text = "Thêm";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // panel29
             // 
@@ -1858,13 +1884,15 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MALOAI,
             this.TENLOAI,
-            this.NSX});
+            this.NSX,
+            this.Column1});
             this.dataGridView3.Location = new System.Drawing.Point(5, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(519, 471);
             this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // MALOAI
             // 
@@ -1886,6 +1914,13 @@
             this.NSX.MinimumWidth = 6;
             this.NSX.Name = "NSX";
             this.NSX.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "NGUỒN GỐC";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
             // 
             // Admin
             // 
@@ -2123,9 +2158,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALOAI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOAI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ANH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENMON;
@@ -2137,5 +2169,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LUONGNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATE_HIRE;
         private System.Windows.Forms.TextBox txtchucvunv;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALOAI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOAI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NSX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

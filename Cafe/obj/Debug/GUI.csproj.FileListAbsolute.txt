@@ -90,3 +90,26 @@ D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
 D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.exe
 D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\Cafe.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\BUS.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.pdb
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\DAL.dll.config
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.exe
+C:\Users\user\OneDrive\Documents\GitHub\duancafe\Cafe\obj\Debug\Cafe.pdb
