@@ -620,10 +620,11 @@ namespace Cafe
                 txttennv.Text = selectedRow.Cells[1].Value?.ToString();
                 txtchucvunv.Text = selectedRow.Cells[2].Value?.ToString();
                 txtluongnv.Text = selectedRow.Cells[3].Value?.ToString();
-
+                dtpkngaythue.Text = selectedRow.Cells[4].Value?.ToString();
                 int employeeID = (int)selectedRow.Cells[0].Value;
                 ShowAvatarnv(employeeID);
             }
+
         }
 
         private void btnaddkm_Click(object sender, EventArgs e)

@@ -73,3 +73,18 @@ C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.CoreCo
 C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
 C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.dll
 C:\Users\user\OneDrive\Documents\GitHub\duancafe\BUS\obj\Debug\BUS.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\BUS.dll.config
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\BUS.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\BUS.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\obj\Debug\BUS.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\BUS\obj\Debug\BUS.pdb
