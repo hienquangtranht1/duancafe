@@ -8,9 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using BUS;
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using OfficeOpenXml;
+
 
 namespace Cafe
 {
@@ -22,9 +25,12 @@ namespace Cafe
         private readonly EMPLOYEEService employeeService = new EMPLOYEEService();
         private readonly DISCOUNTService discountService = new DISCOUNTService();
         private readonly TABLECOFFEEService table = new BUS.TABLECOFFEEService();
+        private readonly BILLINFOService bILLINFOService = new BILLINFOService();
+        private readonly BILLService bILLService = new BILLService();
         public Admin()
         {
             InitializeComponent();
+            OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -1076,6 +1082,86 @@ namespace Cafe
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        void loadlistbillbydate( DateTime checkin,DateTime checkout) 
+        {
+            try
+            {
+                // Lấy danh sách hóa đơn trong khoảng thời gian
+                List<BILL> billList = bILLService.GetBillListByDate(checkin, checkout);
+
+                // Chuyển đổi dữ liệu hóa đơn để hiển thị lên DataGridView
+                var billViewList = billList.Select(b => new
+                {
+                    IDBILL = b.IDBILL,
+                    TableName = b.TABLECOFFEE.NAME,  // Hiển thị tên bàn
+                    Status = b.STATUS == 1 ? "Đã thanh toán" : "Chưa thanh toán",  // Hiển thị trạng thái
+                    DateCheckIn = b.dateCheckIn,   // Hiển thị thời gian check-in
+                    DateCheckOut = b.dateCheckOut,  // Hiển thị thời gian check-out
+                    TotalPrice = b.BILLINFOes.Sum(bi => bi.COUNT * bi.MENU.PRICE) // Tính tổng số tiền
+                }).ToList();
+
+                // Hiển thị danh sách hóa đơn trong DataGridView
+                dgvBill.DataSource = billViewList;
+
+                // Tùy chỉnh hiển thị cho DataGridView
+                setGridViewStyle(dgvBill);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách hóa đơn: " + ex.Message);
+            }
+        }
+        private void btnviewbill_Click(object sender, EventArgs e)
+        {
+            loadlistbillbydate(dtpkfromdate.Value, dtpktodate.Value);
+        }
+        private void ExportToExcel(DataGridView dgv)
+        {
+            // Đảm bảo rằng LicenseContext đã được thiết lập
+            OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // hoặc LicenseContext.Commercial nếu bạn có giấy phép thương mại
+
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+                // Tạo một worksheet mới
+                var worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
+
+                // Xuất tiêu đề cột
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1].Value = dgv.Columns[i].HeaderText;
+                }
+
+                // Xuất dữ liệu
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgv.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1].Value = dgv.Rows[i].Cells[j].Value;
+                    }
+                }
+
+                // Lưu file Excel
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save an Excel File"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                    excelPackage.SaveAs(fileInfo);
+                    MessageBox.Show("Xuất dữ liệu thành công!");
+                }
+            }
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel(dgvBill); // Xuất dữ liệu từ DataGridView dgvBill
         }
     } 
 }

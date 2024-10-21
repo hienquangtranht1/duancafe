@@ -205,6 +205,7 @@
             this.TENLOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -285,6 +286,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExportToExcel);
             this.panel2.Controls.Add(this.dtpktodate);
             this.panel2.Controls.Add(this.dtpkfromdate);
             this.panel2.Controls.Add(this.btnviewbill);
@@ -309,12 +311,13 @@
             // 
             // btnviewbill
             // 
-            this.btnviewbill.Location = new System.Drawing.Point(333, 9);
+            this.btnviewbill.Location = new System.Drawing.Point(268, 9);
             this.btnviewbill.Name = "btnviewbill";
-            this.btnviewbill.Size = new System.Drawing.Size(75, 38);
+            this.btnviewbill.Size = new System.Drawing.Size(104, 38);
             this.btnviewbill.TabIndex = 0;
             this.btnviewbill.Text = "Thống kê ";
             this.btnviewbill.UseVisualStyleBackColor = true;
+            this.btnviewbill.Click += new System.EventHandler(this.btnviewbill_Click);
             // 
             // panel1
             // 
@@ -1922,6 +1925,16 @@
             this.Column1.Name = "Column1";
             this.Column1.Width = 125;
             // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Location = new System.Drawing.Point(417, 9);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(103, 38);
+            this.btnExportToExcel.TabIndex = 6;
+            this.btnExportToExcel.Text = "Xuất ra Excel";
+            this.btnExportToExcel.UseVisualStyleBackColor = true;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2175,5 +2188,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TENLOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn NSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }
