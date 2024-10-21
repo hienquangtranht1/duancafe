@@ -12,53 +12,53 @@ namespace DAL.Entities
         {
         }
 
-        public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
-        public virtual DbSet<BILL> BILL { get; set; }
-        public virtual DbSet<BILLINFO> BILLINFO { get; set; }
-        public virtual DbSet<COFFEETYPE> COFFEETYPE { get; set; }
-        public virtual DbSet<DISCOUNT> DISCOUNT { get; set; }
-        public virtual DbSet<DISCOUNTMENU> DISCOUNTMENU { get; set; }
-        public virtual DbSet<EMPLOYEE> EMPLOYEE { get; set; }
-        public virtual DbSet<INVENTORY> INVENTORY { get; set; }
-        public virtual DbSet<MENU> MENU { get; set; }
-        public virtual DbSet<TABLECOFFEE> TABLECOFFEE { get; set; }
+        public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
+        public virtual DbSet<BILL> BILLs { get; set; }
+        public virtual DbSet<BILLINFO> BILLINFOes { get; set; }
+        public virtual DbSet<COFFEETYPE> COFFEETYPEs { get; set; }
+        public virtual DbSet<DISCOUNT> DISCOUNTs { get; set; }
+        public virtual DbSet<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
+        public virtual DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
+        public virtual DbSet<INVENTORY> INVENTORies { get; set; }
+        public virtual DbSet<MENU> MENUs { get; set; }
+        public virtual DbSet<TABLECOFFEE> TABLECOFFEEs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BILL>()
-                .HasMany(e => e.BILLINFO)
+                .HasMany(e => e.BILLINFOes)
                 .WithRequired(e => e.BILL)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<COFFEETYPE>()
-                .HasMany(e => e.INVENTORY)
+                .HasMany(e => e.INVENTORies)
                 .WithRequired(e => e.COFFEETYPE)
                 .HasForeignKey(e => e.IDCOFFEE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<COFFEETYPE>()
-                .HasMany(e => e.MENU)
+                .HasMany(e => e.MENUs)
                 .WithRequired(e => e.COFFEETYPE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DISCOUNT>()
-                .HasMany(e => e.DISCOUNTMENU)
+                .HasMany(e => e.DISCOUNTMENUs)
                 .WithRequired(e => e.DISCOUNT)
                 .HasForeignKey(e => e.IDDISCOUNT)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MENU>()
-                .HasMany(e => e.BILLINFO)
+                .HasMany(e => e.BILLINFOes)
                 .WithRequired(e => e.MENU)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MENU>()
-                .HasMany(e => e.DISCOUNTMENU)
+                .HasMany(e => e.DISCOUNTMENUs)
                 .WithRequired(e => e.MENU)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TABLECOFFEE>()
-                .HasMany(e => e.BILL)
+                .HasMany(e => e.BILLs)
                 .WithRequired(e => e.TABLECOFFEE)
                 .WillCascadeOnDelete(false);
         }

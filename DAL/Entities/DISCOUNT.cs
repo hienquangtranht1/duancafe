@@ -12,7 +12,7 @@ namespace DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DISCOUNT()
         {
-            DISCOUNTMENU = new HashSet<DISCOUNTMENU>();
+            DISCOUNTMENUs = new HashSet<DISCOUNTMENU>();
         }
 
         [Key]
@@ -35,6 +35,6 @@ namespace DAL.Entities
         public string STATUS { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENU { get; set; }
+        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
     }
 }

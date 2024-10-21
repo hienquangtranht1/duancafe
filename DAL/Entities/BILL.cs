@@ -12,7 +12,7 @@ namespace DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BILL()
         {
-            BILLINFO = new HashSet<BILLINFO>();
+            BILLINFOes = new HashSet<BILLINFO>();
         }
 
         [Key]
@@ -26,6 +26,6 @@ namespace DAL.Entities
         public virtual TABLECOFFEE TABLECOFFEE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLINFO> BILLINFO { get; set; }
+        public virtual ICollection<BILLINFO> BILLINFOes { get; set; }
     }
 }

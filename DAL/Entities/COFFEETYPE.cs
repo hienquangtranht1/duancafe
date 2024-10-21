@@ -12,8 +12,8 @@ namespace DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public COFFEETYPE()
         {
-            INVENTORY = new HashSet<INVENTORY>();
-            MENU = new HashSet<MENU>();
+            INVENTORies = new HashSet<INVENTORY>();
+            MENUs = new HashSet<MENU>();
         }
 
         [Key]
@@ -31,9 +31,9 @@ namespace DAL.Entities
         public string ORIGIN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INVENTORY> INVENTORY { get; set; }
+        public virtual ICollection<INVENTORY> INVENTORies { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MENU> MENU { get; set; }
+        public virtual ICollection<MENU> MENUs { get; set; }
     }
 }

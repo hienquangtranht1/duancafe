@@ -12,8 +12,8 @@ namespace DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MENU()
         {
-            BILLINFO = new HashSet<BILLINFO>();
-            DISCOUNTMENU = new HashSet<DISCOUNTMENU>();
+            BILLINFOes = new HashSet<BILLINFO>();
+            DISCOUNTMENUs = new HashSet<DISCOUNTMENU>();
         }
 
         [Key]
@@ -32,11 +32,11 @@ namespace DAL.Entities
         public string AVATARMENU { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLINFO> BILLINFO { get; set; }
+        public virtual ICollection<BILLINFO> BILLINFOes { get; set; }
 
         public virtual COFFEETYPE COFFEETYPE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENU { get; set; }
+        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
     }
 }

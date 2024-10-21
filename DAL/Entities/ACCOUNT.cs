@@ -10,6 +10,9 @@ namespace DAL.Entities
     public partial class ACCOUNT
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDTK { get; set; }
+
         [StringLength(100)]
         public string USERNAME { get; set; }
 
