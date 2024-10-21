@@ -11,8 +11,11 @@ namespace BUS
     {
         public List<TYPEACCOUNT> GetAll()
         {
-            CAFEModel model = new CAFEModel();
-            return model.TYPEACCOUNTs.ToList();
+            using (CAFEModel model = new CAFEModel())
+            {
+                return model.TYPEACCOUNTs.ToList(); 
+            }
         }
+
     }
 }

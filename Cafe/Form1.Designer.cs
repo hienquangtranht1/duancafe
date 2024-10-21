@@ -33,12 +33,13 @@
             this.lblmk = new System.Windows.Forms.Label();
             this.lbltdn = new System.Windows.Forms.Label();
             this.btndn = new System.Windows.Forms.Button();
+            this.btnexit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txttmk
             // 
             this.txttmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttmk.Location = new System.Drawing.Point(315, 89);
+            this.txttmk.Location = new System.Drawing.Point(315, 94);
             this.txttmk.Name = "txttmk";
             this.txttmk.Size = new System.Drawing.Size(199, 34);
             this.txttmk.TabIndex = 32;
@@ -80,9 +81,22 @@
             this.btndn.Name = "btndn";
             this.btndn.Size = new System.Drawing.Size(217, 45);
             this.btndn.TabIndex = 27;
-            this.btndn.Text = "Đăng nhập:";
+            this.btndn.Text = "Đăng nhập";
             this.btndn.UseVisualStyleBackColor = false;
             this.btndn.Click += new System.EventHandler(this.btndn_Click);
+            // 
+            // btnexit
+            // 
+            this.btnexit.BackColor = System.Drawing.Color.Red;
+            this.btnexit.Font = new System.Drawing.Font("Showcard Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnexit.Location = new System.Drawing.Point(598, 246);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 31);
+            this.btnexit.TabIndex = 33;
+            this.btnexit.Text = "EXIT";
+            this.btnexit.UseVisualStyleBackColor = false;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // Form1
             // 
@@ -90,6 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(685, 289);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.txttmk);
             this.Controls.Add(this.txttdn);
             this.Controls.Add(this.lblmk);
@@ -110,6 +125,7 @@
         private System.Windows.Forms.Label lblmk;
         private System.Windows.Forms.Label lbltdn;
         private System.Windows.Forms.Button btndn;
+        private System.Windows.Forms.Button btnexit;
     }
 }
 

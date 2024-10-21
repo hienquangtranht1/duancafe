@@ -22,6 +22,9 @@ namespace Cafe
         private readonly EMPLOYEEService employeeService = new EMPLOYEEService();
         private readonly DISCOUNTService discountService = new DISCOUNTService();
         private readonly TABLECOFFEEService table = new BUS.TABLECOFFEEService();
+        private readonly ACCOUNTService accountService = new ACCOUNTService();
+        private readonly TYPEACCOUNTService typeAccountService = new TYPEACCOUNTService();
+
         public Admin()
         {
             InitializeComponent();
@@ -49,6 +52,13 @@ namespace Cafe
                 var listtable = table.GetAll();
                 BindGridTable(listtable);
 
+                setGridViewStyle(dtgvtk);
+                var listaccount = accountService.GetAll();
+                var listaccounttype = typeAccountService.GetAll();
+                FillEmployCombobox(listEmployee);
+                FilltypeAccountCombobox(listaccounttype);
+                BindGridTK(listaccount);
+
 
 
             }
@@ -59,6 +69,22 @@ namespace Cafe
 
 
         }
+
+        private void BindGridTK(List<ACCOUNT> listaccount)
+        {
+            dtgvtk.Rows.Clear();
+            foreach (var item in listaccount) 
+            { 
+                int index = dtgvtk.Rows.Add(item);
+                dtgvtk.Rows[index].Cells[0].Value = item.USERNAME;
+                dtgvtk.Rows[index].Cells[1].Value = item.PASSWORD;
+                dtgvtk.Rows[index].Cells[2].Value = item.TYPEACCOUNT.NAME;
+                if(item.EMPLOYEE != null) 
+                    dtgvtk.Rows[index].Cells[3].Value = item.EMPLOYEE.NAME; 
+
+            }
+        }
+
         private void BindGridTable(List<TABLECOFFEE> table)
         {
             dataGridView1.Rows.Clear();
@@ -69,6 +95,21 @@ namespace Cafe
                 dataGridView1.Rows[index].Cells[1].Value = tables.NAME;
                 dataGridView1.Rows[index].Cells[2].Value = tables.STATUS;
             }
+        }
+
+        private void FilltypeAccountCombobox(List<TYPEACCOUNT> listtypeaccount)
+        {
+            listtypeaccount.Insert(0, new TYPEACCOUNT());
+            this.cboloaitk.DataSource = listtypeaccount;
+            this.cboloaitk.DisplayMember = "NAME";
+            this.cboloaitk.ValueMember = "IDTYPETK";
+        }
+        private void FillEmployCombobox(List<EMPLOYEE> listem)
+        {
+            listem.Insert(0, new EMPLOYEE());
+            this.cmbidnhanvien.DataSource = listem;
+            this.cmbidnhanvien.DisplayMember = "NAME";
+            this.cmbidnhanvien.ValueMember = "IDEMPLOYEE";
         }
         private void BindGridDiscount(List<DISCOUNT> listdiscount)
         {
@@ -617,7 +658,7 @@ namespace Cafe
                 txttennv.Text = selectedRow.Cells[1].Value?.ToString();
                 txtchucvunv.Text = selectedRow.Cells[2].Value?.ToString();
                 txtluongnv.Text = selectedRow.Cells[3].Value?.ToString();
-
+                dtpkngaythue.Text = selectedRow.Cells[4].Value?.ToString();
                 int employeeID = (int)selectedRow.Cells[0].Value;
                 ShowAvatarnv(employeeID);
             }
@@ -753,7 +794,7 @@ namespace Cafe
         {
             try
             {
-                string searchName = txttenkm.Text.Trim();
+                string searchName = txttim.Text.Trim();
 
                 if (string.IsNullOrEmpty(searchName))
                 {
@@ -916,6 +957,194 @@ namespace Cafe
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnaddtk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txttentk.Text) ||
+                   string.IsNullOrEmpty(txtmatkhau.Text) ||
+                 
+                   string.IsNullOrEmpty(cboloaitk.Text)
+                   )
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                ACCOUNT account = new ACCOUNT
+                {
+                    USERNAME = txttentk.Text,
+                    PASSWORD = txtmatkhau.Text,
+                    IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
+                    IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString())
+                };
+                var (result, message) = accountService.Add(account);
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                if (result)
+                {
+                    var listaccount = accountService.GetAll();
+                    BindGridTK(listaccount);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvtk_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {   
+                DataGridViewRow selectedRow =  dtgvtk.Rows[e.RowIndex];
+                txttentk.Text = selectedRow.Cells[0].Value.ToString();
+                txtmatkhau.Text = selectedRow.Cells[1].Value.ToString();
+                cboloaitk.Text = selectedRow.Cells[2].Value.ToString();
+                var idNhanVienValue = selectedRow.Cells[3].Value;
+                if (idNhanVienValue != null)
+                {
+                    cmbidnhanvien.Text = idNhanVienValue.ToString();
+                }
+                else
+                {
+                    cmbidnhanvien.SelectedIndex = -1; 
+                }
+            }
+        }
+
+        private void btnxoatk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dtgvtk.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dtgvtk.SelectedRows[0];
+                    string user = (string)selectedRow.Cells[0].Value;
+
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?",
+                                                        "Xác nhận xóa",
+                                                        MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = accountService.DeleteById(user);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listaccount = accountService.GetAll();
+                            BindGridTK(listaccount);
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một khuyến mãi để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnsuatk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txttentk.Text) ||
+                   string.IsNullOrEmpty(txtmatkhau.Text) ||
+
+                   string.IsNullOrEmpty(cboloaitk.Text))
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                ACCOUNT account = new ACCOUNT
+                {
+                    USERNAME = txttentk.Text,
+                    PASSWORD = txtmatkhau.Text,
+                    IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
+                    IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString())
+                };
+                var (result, message) = accountService.Update(account);
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                if (result)
+                {
+                    var listaccount = accountService.GetAll();
+                    BindGridTK(listaccount);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btntimtk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchName = txttimtk.Text.Trim();
+
+                if (string.IsNullOrEmpty(searchName))
+                {
+                    MessageBox.Show("Vui lòng nhập tên tài khoản để tìm kiếm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                List<ACCOUNT> foundaccount = accountService.FindById(searchName);
+
+                if (foundaccount != null && foundaccount.Count > 0)
+                {
+                    BindGridTK(foundaccount);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy tên khuyến mãi nào với tên đã nhập.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtgvdis.Rows.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
+
+        private void eToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                Application.Exit();
+            }
+            else
+                return;
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Menu fm = new Menu();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
         }
     } 
 }
