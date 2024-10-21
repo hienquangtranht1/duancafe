@@ -19,7 +19,7 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                // Nếu không có bản ghi nào trong bảng MENU, trả về 0
+                
                 return model.MENUs.Any() ? model.MENUs.Max(m => m.IDMENU) : 0;
             }
         }
@@ -49,7 +49,7 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                // Tìm món ăn theo IDMENU
+               
                 return model.MENUs.SingleOrDefault(m => m.IDMENU == menuID);
             }
         }
@@ -79,7 +79,7 @@ namespace BUS
         }
         public (bool success, string message) Update(MENU menu)
         {
-            // Xác minh đầu vào
+            
             if (string.IsNullOrWhiteSpace(menu.NAME))
             {
                 return (false, "Tên món ăn không được để trống.");
@@ -92,14 +92,14 @@ namespace BUS
 
             using (CAFEModel model = new CAFEModel())
             {
-                // Tìm món ăn theo IDMENU
+                
                 var existingMenuItem = model.MENUs.SingleOrDefault(m => m.IDMENU == menu.IDMENU);
                 if (existingMenuItem == null)
                 {
                     return (false, "Không tìm thấy món ăn để cập nhật.");
                 }
 
-                // Cập nhật thông tin món ăn
+                
                 existingMenuItem.NAME = menu.NAME;
                 existingMenuItem.PRICE = menu.PRICE;
                 existingMenuItem.IDTYPE = menu.IDTYPE;
