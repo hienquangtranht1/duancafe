@@ -43,3 +43,18 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\BUS\obj\Debug\BUS.csproj
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\BUS\obj\Debug\BUS.dll
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\BUS\obj\Debug\BUS.pdb
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\BUS.dll.config
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\BUS.dll
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\BUS.pdb
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\DAL.dll
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\EntityFramework.dll
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\DAL.pdb
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\DAL.dll.config
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\EntityFramework.xml
+D:\tài liệu\GitHub\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
+D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.dll
+D:\tài liệu\GitHub\duancafe\BUS\obj\Debug\BUS.pdb

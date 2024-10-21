@@ -67,3 +67,26 @@ D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.cspro
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.exe
 D:\hoc\bai tap moi truong windows\DemodoanCafe\duancafe\Cafe\obj\Debug\Cafe.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.exe
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\Cafe.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.dll
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\BUS.dll.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.pdb
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\DAL.dll.config
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.xml
+D:\tài liệu\GitHub\duancafe\Cafe\bin\Debug\EntityFramework.SqlServer.xml
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Admin.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Form1.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Menu.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\GUI.csproj.Up2Date
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.exe
+D:\tài liệu\GitHub\duancafe\Cafe\obj\Debug\Cafe.pdb
