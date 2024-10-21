@@ -21,7 +21,7 @@ namespace Cafe
         private string avartarFilePath = string.Empty;
         private readonly EMPLOYEEService employeeService = new EMPLOYEEService();
         private readonly DISCOUNTService discountService = new DISCOUNTService();
-
+        private readonly TABLECOFFEEService table = new BUS.TABLECOFFEEService();
         public Admin()
         {
             InitializeComponent();
@@ -44,6 +44,10 @@ namespace Cafe
                 BindGridDiscount(listdiscount);
                 setGridViewStyle(dtgvdis);
                 setGridViewStyle(dtgvnv);
+               
+                setGridViewStyle(dataGridView1);
+                var listtable = table.GetAll();
+                BindGridTable(listtable);
 
 
 
@@ -55,7 +59,17 @@ namespace Cafe
 
 
         }
-
+        private void BindGridTable(List<TABLECOFFEE> table)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var tables in table)
+            {
+                int index = dataGridView1.Rows.Add();
+                dataGridView1.Rows[index].Cells[0].Value = tables.IDTABLE;
+                dataGridView1.Rows[index].Cells[1].Value = tables.NAME;
+                dataGridView1.Rows[index].Cells[2].Value = tables.STATUS;
+            }
+        }
         private void BindGridDiscount(List<DISCOUNT> listdiscount)
         {
             dtgvdis.Rows.Clear();
@@ -758,6 +772,145 @@ namespace Cafe
                     MessageBox.Show("Không tìm thấy tên khuyến mãi nào với tên đã nhập.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dtgvdis.Rows.Clear();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dataGridViewRow = dataGridView1.Rows[e.RowIndex];
+                textBox12.Text = dataGridViewRow.Cells[0].Value.ToString();
+                textBox11.Text = dataGridViewRow.Cells[1].Value.ToString();
+                textBox10.Text = dataGridViewRow.Cells[2].Value.ToString();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox12.Text))
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                int newIDTable = table.GetMaxID() + 1;
+                TABLECOFFEE newTable = new TABLECOFFEE
+                {
+                    IDTABLE = newIDTable,
+                    NAME = textBox11.Text,
+                    STATUS = textBox10.Text
+                };
+                var (result, message) = table.Add(newTable);
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                if (result)
+                {
+                    var listTables = table.GetAll();
+                    BindGridTable(listTables);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    int tableID = (int)selectedRow.Cells[0].Value;
+
+
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa bàn này?",
+                                                         "Xác nhận xóa",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+
+                        var (result, message) = table.DeleteById(tableID);
+
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+
+                        if (result)
+                        {
+                            var listTables = table.GetAll();
+                            BindGridTable(listTables);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một bàn để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    int tableID = (int)selectedRow.Cells[0].Value;
+                    if (string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox10.Text))
+                    {
+                        MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    TABLECOFFEE updatedTable = new TABLECOFFEE
+                    {
+                        IDTABLE = tableID,
+                        NAME = textBox11.Text,
+                        STATUS = textBox10.Text
+                    };
+                    var (result, message) = table.Update(updatedTable);
+                    MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                    if (result)
+                    {
+                        var listTables = table.GetAll();
+                        BindGridTable(listTables);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một bàn để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchTerm = textBox9.Text.Trim();
+                var listTables = table.GetAll();
+                var filteredTables = listTables.Where(item =>
+                    item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                BindGridTable(filteredTables);
             }
             catch (Exception ex)
             {

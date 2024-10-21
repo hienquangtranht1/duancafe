@@ -1320,6 +1320,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Tìm";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel19
             // 
@@ -1403,6 +1404,7 @@
             this.button5.TabIndex = 2;
             this.button5.Text = "Sửa";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -1412,6 +1414,7 @@
             this.button6.TabIndex = 1;
             this.button6.Text = "Xóa";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -1421,6 +1424,7 @@
             this.button7.TabIndex = 0;
             this.button7.Text = "Thêm";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel21
             // 
@@ -1443,6 +1447,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(519, 471);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // IDTABLE
             // 
