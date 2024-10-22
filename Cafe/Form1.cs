@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using BUS;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BUS;
+
 namespace Cafe
 {
     public partial class Form1 : Form
@@ -19,9 +20,8 @@ namespace Cafe
         {
             InitializeComponent();
             txttmk.UseSystemPasswordChar = true;
-          
         }
-        public TextBox txttDN => txttdn;
+
         private void btndn_Click(object sender, EventArgs e)
         {
             try
@@ -36,12 +36,12 @@ namespace Cafe
                 }
 
                 List<ACCOUNT> dn = accountService.FindById(username);
-                if (dn != null && dn.Count>0 && dn[0].PASSWORD == password) 
+                if (dn != null && dn.Count > 0 && dn[0].PASSWORD == password)
                 {
-                    
-                        Menu khoa = new Menu();
-                        khoa.ShowDialog();
-              
+
+                    Menu khoa = new Menu();
+                    khoa.ShowDialog();
+
                 }
                 else
                 {
@@ -52,7 +52,6 @@ namespace Cafe
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -72,7 +71,5 @@ namespace Cafe
             else
                 return;
         }
-
-
     }
 }

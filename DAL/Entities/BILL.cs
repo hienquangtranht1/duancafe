@@ -13,6 +13,7 @@ namespace DAL.Entities
         public BILL()
         {
             BILLINFOes = new HashSet<BILLINFO>();
+
         }
 
         [Key]

@@ -13,9 +13,8 @@ namespace BUS
         {
             using (CAFEModel model = new CAFEModel())
             {
-                return model.TYPEACCOUNTs.ToList(); 
+                return model.TYPEACCOUNTs.ToList();
             }
         }
-
     }
 }

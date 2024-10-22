@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -11,11 +13,8 @@ namespace BUS
         public List<ACCOUNT> GetAll()
         {
             CAFEModel model = new CAFEModel();
-            
-                return model.ACCOUNTs.ToList(); 
-            
+            return model.ACCOUNTs.ToList();
         }
-
         public string GetMaxID()
         {
             using (CAFEModel model = new CAFEModel())
@@ -46,7 +45,7 @@ namespace BUS
             }
         }
 
-        public List < ACCOUNT> FindById(string username)
+        public List<ACCOUNT> FindById(string username)
         {
             CAFEModel model = new CAFEModel();
 

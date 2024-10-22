@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DAL.Entities;
+
 namespace Cafe
 {
     public partial class Menu : Form
@@ -39,27 +41,15 @@ namespace Cafe
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
-
-                    Admin adminForm = new Admin();
-                    this.Hide();
-                    adminForm.ShowDialog();
-                    this.Show();
-
-             
+            Admin adminForm = new Admin();
+            this.Hide();
+            adminForm.ShowDialog();
+            this.Show();
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void quayLạiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form1 fm = new Form1();
-            this.Hide(); 
-            fm.ShowDialog(); 
-            this.Show();
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)

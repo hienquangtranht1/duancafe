@@ -8,9 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using BUS;
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using OfficeOpenXml;
+
 
 namespace Cafe
 {
@@ -22,12 +25,14 @@ namespace Cafe
         private readonly EMPLOYEEService employeeService = new EMPLOYEEService();
         private readonly DISCOUNTService discountService = new DISCOUNTService();
         private readonly TABLECOFFEEService table = new BUS.TABLECOFFEEService();
+        private readonly BILLINFOService bILLINFOService = new BILLINFOService();
+        private readonly BILLService bILLService = new BILLService();
         private readonly ACCOUNTService accountService = new ACCOUNTService();
         private readonly TYPEACCOUNTService typeAccountService = new TYPEACCOUNTService();
-
         public Admin()
         {
             InitializeComponent();
+            OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -55,9 +60,13 @@ namespace Cafe
                 setGridViewStyle(dtgvtk);
                 var listaccount = accountService.GetAll();
                 var listaccounttype = typeAccountService.GetAll();
-                FillEmployCombobox(listEmployee);
+                //FillEmployCombobox(listEmployee);
                 FilltypeAccountCombobox(listaccounttype);
                 BindGridTK(listaccount);
+
+                setGridViewStyle(dataGridView3);
+                var listtype = cOFFEETYPEService.GetAll();
+                BindGridCoffeeType(listtype);
 
 
 
@@ -73,14 +82,14 @@ namespace Cafe
         private void BindGridTK(List<ACCOUNT> listaccount)
         {
             dtgvtk.Rows.Clear();
-            foreach (var item in listaccount) 
-            { 
+            foreach (var item in listaccount)
+            {
                 int index = dtgvtk.Rows.Add(item);
                 dtgvtk.Rows[index].Cells[0].Value = item.USERNAME;
                 dtgvtk.Rows[index].Cells[1].Value = item.PASSWORD;
                 dtgvtk.Rows[index].Cells[2].Value = item.TYPEACCOUNT.NAME;
-                if(item.EMPLOYEE != null) 
-                    dtgvtk.Rows[index].Cells[3].Value = item.EMPLOYEE.NAME; 
+                if (item.EMPLOYEE != null)
+                    dtgvtk.Rows[index].Cells[3].Value = item.EMPLOYEE.NAME;
 
             }
         }
@@ -104,13 +113,13 @@ namespace Cafe
             this.cboloaitk.DisplayMember = "NAME";
             this.cboloaitk.ValueMember = "IDTYPETK";
         }
-        private void FillEmployCombobox(List<EMPLOYEE> listem)
-        {
-            listem.Insert(0, new EMPLOYEE());
-            this.cmbidnhanvien.DataSource = listem;
-            this.cmbidnhanvien.DisplayMember = "NAME";
-            this.cmbidnhanvien.ValueMember = "IDEMPLOYEE";
-        }
+        //private void FillEmployCombobox(List<EMPLOYEE> listem)
+        //{
+        //    listem.Insert(0, new EMPLOYEE());
+        //    this.cmbidnhanvien.DataSource = listem;
+        //    this.cmbidnhanvien.DisplayMember = "NAME";
+        //    this.cmbidnhanvien.ValueMember = "IDEMPLOYEE";
+        //}
         private void BindGridDiscount(List<DISCOUNT> listdiscount)
         {
             dtgvdis.Rows.Clear();
@@ -662,6 +671,7 @@ namespace Cafe
                 int employeeID = (int)selectedRow.Cells[0].Value;
                 ShowAvatarnv(employeeID);
             }
+
         }
 
         private void btnaddkm_Click(object sender, EventArgs e)
@@ -794,7 +804,7 @@ namespace Cafe
         {
             try
             {
-                string searchName = txttim.Text.Trim();
+                string searchName = txttenkm.Text.Trim();
 
                 if (string.IsNullOrEmpty(searchName))
                 {
@@ -959,13 +969,252 @@ namespace Cafe
             }
         }
 
+
+
+        private void BindGridCoffeeType(List<COFFEETYPE> type)
+        {
+            dataGridView3.Rows.Clear();
+            foreach (var types in type)
+            {
+                int index = dataGridView3.Rows.Add();
+                dataGridView3.Rows[index].Cells[0].Value = types.IDTYPE;
+                dataGridView3.Rows[index].Cells[1].Value = types.NAME;
+                dataGridView3.Rows[index].Cells[2].Value = types.NSX;
+                dataGridView3.Rows[index].Cells[3].Value = types.ORIGIN;
+
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dataGridViewRow = dataGridView3.Rows[e.RowIndex];
+                textBox20.Text = dataGridViewRow.Cells[0].Value.ToString();
+                textBox19.Text = dataGridViewRow.Cells[1].Value.ToString();
+                dateTimePicker3.Text = dataGridViewRow.Cells[2].Value.ToString();
+                textBox1.Text = dataGridViewRow.Cells[3].Value.ToString();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa loại cà phê này?",
+                                                         "Xác nhận xóa",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = cOFFEETYPEService.DeleteById(coffeeTypeID);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                            BindGridCoffeeType(listCoffeeTypes);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView3.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa loại cà phê này?",
+                                                         "Xác nhận xóa",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = cOFFEETYPEService.DeleteById(coffeeTypeID);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                            BindGridCoffeeType(listCoffeeTypes);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView3.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    int coffeeTypeID = (int)selectedRow.Cells[0].Value;
+
+                    if (string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox10.Text))
+                    {
+                        MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    COFFEETYPE updatedCoffeeType = new COFFEETYPE
+                    {
+                        IDTYPE = coffeeTypeID,
+                        NAME = textBox19.Text,
+                        ORIGIN = textBox20.Text,
+                        NSX = dateTimePicker3.Value
+                    };
+
+                    var (result, message) = cOFFEETYPEService.Update(updatedCoffeeType);
+                    MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                    if (result)
+                    {
+                        var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                        BindGridCoffeeType(listCoffeeTypes);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một loại cà phê để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchTerm = textBox17.Text.Trim();
+                var listCoffeeTypes = cOFFEETYPEService.GetAll();
+                var filteredCoffeeTypes = listCoffeeTypes.Where(item =>
+                    item.NAME.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                BindGridCoffeeType(filteredCoffeeTypes);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        void loadlistbillbydate( DateTime checkin,DateTime checkout) 
+        {
+            try
+            {
+                
+                List<BILL> billList = bILLService.GetBillListByDate(checkin, checkout);
+
+               
+                var billViewList = billList.Select(b => new
+                {
+                    IDBILL = b.IDBILL,
+                    TableName = b.TABLECOFFEE.NAME, 
+                    Status = b.STATUS == 1 ? "Đã thanh toán" : "Chưa thanh toán", 
+                    DateCheckIn = b.dateCheckIn,  
+                    DateCheckOut = b.dateCheckOut,  
+                    TotalPrice = b.BILLINFOes.Sum(bi => bi.COUNT * bi.MENU.PRICE) 
+                }).ToList();
+
+               
+                dgvBill.DataSource = billViewList;
+
+               
+                setGridViewStyle(dgvBill);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách hóa đơn: " + ex.Message);
+            }
+        }
+        private void btnviewbill_Click(object sender, EventArgs e)
+        {
+            loadlistbillbydate(dtpkfromdate.Value, dtpktodate.Value);
+        }
+        private void ExportToExcel(DataGridView dgv)
+        {
+          
+            OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+               
+                var worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
+
+               
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1].Value = dgv.Columns[i].HeaderText;
+                }
+
+               
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgv.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1].Value = dgv.Rows[i].Cells[j].Value;
+                    }
+                }
+
+              
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save an Excel File"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                    excelPackage.SaveAs(fileInfo);
+                    MessageBox.Show("Xuất dữ liệu thành công!");
+                }
+            }
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel(dgvBill); 
+        }
+
         private void btnaddtk_Click(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrEmpty(txttentk.Text) ||
                    string.IsNullOrEmpty(txtmatkhau.Text) ||
-                 
+
                    string.IsNullOrEmpty(cboloaitk.Text)
                    )
                 {
@@ -995,11 +1244,11 @@ namespace Cafe
             }
         }
 
-        private void dgvtk_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvtk_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {   
-                DataGridViewRow selectedRow =  dtgvtk.Rows[e.RowIndex];
+            {
+                DataGridViewRow selectedRow = dtgvtk.Rows[e.RowIndex];
                 txttentk.Text = selectedRow.Cells[0].Value.ToString();
                 txtmatkhau.Text = selectedRow.Cells[1].Value.ToString();
                 cboloaitk.Text = selectedRow.Cells[2].Value.ToString();
@@ -1010,7 +1259,7 @@ namespace Cafe
                 }
                 else
                 {
-                    cmbidnhanvien.SelectedIndex = -1; 
+                    cmbidnhanvien.SelectedIndex = -1;
                 }
             }
         }
@@ -1118,33 +1367,9 @@ namespace Cafe
             }
         }
 
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        private void txtidnv_TextChanged(object sender, EventArgs e)
         {
-            Form1 fm = new Form1();
-            this.Hide();
-            fm.ShowDialog();
-            this.Show();
-        }
 
-        private void eToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-
-                Application.Exit();
-            }
-            else
-                return;
-        }
-
-        private void backToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Menu fm = new Menu();
-            this.Hide();
-            fm.ShowDialog();
-            this.Show();
         }
     } 
 }

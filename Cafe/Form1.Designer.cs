@@ -39,7 +39,7 @@
             // txttmk
             // 
             this.txttmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttmk.Location = new System.Drawing.Point(315, 94);
+            this.txttmk.Location = new System.Drawing.Point(315, 89);
             this.txttmk.Name = "txttmk";
             this.txttmk.Size = new System.Drawing.Size(199, 34);
             this.txttmk.TabIndex = 32;
@@ -77,22 +77,22 @@
             this.btndn.BackColor = System.Drawing.SystemColors.Highlight;
             this.btndn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btndn.Location = new System.Drawing.Point(228, 143);
+            this.btndn.Location = new System.Drawing.Point(128, 143);
             this.btndn.Name = "btndn";
             this.btndn.Size = new System.Drawing.Size(217, 45);
             this.btndn.TabIndex = 27;
-            this.btndn.Text = "Đăng nhập";
+            this.btndn.Text = "Đăng nhập:";
             this.btndn.UseVisualStyleBackColor = false;
             this.btndn.Click += new System.EventHandler(this.btndn_Click);
             // 
             // btnexit
             // 
-            this.btnexit.BackColor = System.Drawing.Color.Red;
-            this.btnexit.Font = new System.Drawing.Font("Showcard Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnexit.Location = new System.Drawing.Point(598, 246);
+            this.btnexit.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnexit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnexit.Location = new System.Drawing.Point(370, 143);
             this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(75, 31);
+            this.btnexit.Size = new System.Drawing.Size(217, 45);
             this.btnexit.TabIndex = 33;
             this.btnexit.Text = "EXIT";
             this.btnexit.UseVisualStyleBackColor = false;

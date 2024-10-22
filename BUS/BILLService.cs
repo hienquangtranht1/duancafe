@@ -35,10 +35,10 @@ namespace BUS
         {
             using (var model = new CAFEModel())
             {
-                // Lấy danh sách hóa đơn trong khoảng thời gian với eager loading
+           
                 var billList = model.BILLs
                                     .Include(b => b.TABLECOFFEE)
-                                    .Include(b => b.BILLINFOes.Select(bi => bi.MENU)) // Load MENU thông qua BILLINFO
+                                    .Include(b => b.BILLINFOes.Select(bi => bi.MENU)) 
                                     .Where(b => b.dateCheckIn >= checkIn && b.dateCheckOut <= checkOut)
                                     .ToList();
                 return billList;
