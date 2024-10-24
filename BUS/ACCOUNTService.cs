@@ -77,7 +77,13 @@ namespace BUS
                 return (false, $"Đã xảy ra lỗi: {ex.Message}");
             }
         }
-
+        public ACCOUNT GetCurrentUser(string username)
+        {
+            using (CAFEModel model = new CAFEModel())
+            {
+                return model.ACCOUNTs.SingleOrDefault(e => e.USERNAME == username);
+            }
+        }
         public (bool success, string message) Update(ACCOUNT account)
         {
             if (string.IsNullOrWhiteSpace(account.PASSWORD))
