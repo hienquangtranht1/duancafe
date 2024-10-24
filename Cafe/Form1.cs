@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Cafe
 {
     public partial class Form1 : Form
     {
         private readonly ACCOUNTService accountService = new ACCOUNTService();
+        public string currentUsername;
 
         public Form1()
         {
@@ -38,8 +40,7 @@ namespace Cafe
                 List<ACCOUNT> dn = accountService.FindById(username);
                 if (dn != null && dn.Count > 0 && dn[0].PASSWORD == password)
                 {
-
-                    Menu khoa = new Menu();    
+                    Menu khoa = new Menu(username);    
                     this.Hide();
                     khoa.ShowDialog();
                     this.Show();

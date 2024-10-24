@@ -60,11 +60,6 @@
             this.btnaddfood = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMON = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpinfor = new System.Windows.Forms.TabPage();
             this.panel30 = new System.Windows.Forms.Panel();
             this.txttimtk = new System.Windows.Forms.TextBox();
@@ -220,6 +215,11 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENMON = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -462,6 +462,7 @@
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::Cafe.Properties.Resources.ca_phe_buon_me_thuoc;
             this.pictureBox1.Location = new System.Drawing.Point(64, 292);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 138);
@@ -595,50 +596,6 @@
             this.dtgvFood.Size = new System.Drawing.Size(522, 471);
             this.dtgvFood.TabIndex = 1;
             this.dtgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "MÃ";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 56;
-            // 
-            // TENMON
-            // 
-            this.TENMON.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TENMON.HeaderText = "TÊN MÓN";
-            this.TENMON.MinimumWidth = 6;
-            this.TENMON.Name = "TENMON";
-            this.TENMON.ReadOnly = true;
-            this.TENMON.Width = 98;
-            // 
-            // LOAI
-            // 
-            this.LOAI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.LOAI.HeaderText = "LOẠI CF";
-            this.LOAI.MinimumWidth = 6;
-            this.LOAI.Name = "LOAI";
-            this.LOAI.ReadOnly = true;
-            this.LOAI.Width = 85;
-            // 
-            // GIA
-            // 
-            this.GIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.GIA.HeaderText = "GIÁ";
-            this.GIA.MinimumWidth = 6;
-            this.GIA.Name = "GIA";
-            this.GIA.ReadOnly = true;
-            this.GIA.Width = 58;
-            // 
-            // IDKM
-            // 
-            this.IDKM.HeaderText = "ID KM";
-            this.IDKM.MinimumWidth = 6;
-            this.IDKM.Name = "IDKM";
-            this.IDKM.ReadOnly = true;
-            this.IDKM.Width = 125;
             // 
             // tpinfor
             // 
@@ -2079,6 +2036,50 @@
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "MÃ";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 56;
+            // 
+            // TENMON
+            // 
+            this.TENMON.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TENMON.HeaderText = "TÊN MÓN";
+            this.TENMON.MinimumWidth = 6;
+            this.TENMON.Name = "TENMON";
+            this.TENMON.ReadOnly = true;
+            this.TENMON.Width = 98;
+            // 
+            // LOAI
+            // 
+            this.LOAI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.LOAI.HeaderText = "LOẠI CF";
+            this.LOAI.MinimumWidth = 6;
+            this.LOAI.Name = "LOAI";
+            this.LOAI.ReadOnly = true;
+            this.LOAI.Width = 85;
+            // 
+            // GIA
+            // 
+            this.GIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GIA.HeaderText = "GIÁ";
+            this.GIA.MinimumWidth = 6;
+            this.GIA.Name = "GIA";
+            this.GIA.ReadOnly = true;
+            this.GIA.Width = 58;
+            // 
+            // IDKM
+            // 
+            this.IDKM.HeaderText = "ID KM";
+            this.IDKM.MinimumWidth = 6;
+            this.IDKM.Name = "IDKM";
+            this.IDKM.ReadOnly = true;
+            this.IDKM.Width = 125;
             // 
             // Admin
             // 

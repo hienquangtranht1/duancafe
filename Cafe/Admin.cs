@@ -13,7 +13,7 @@ using BUS;
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OfficeOpenXml;
-using System.Security.Principal;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace Cafe
@@ -30,9 +30,12 @@ namespace Cafe
         private readonly BILLService bILLService = new BILLService();
         private readonly ACCOUNTService accountService = new ACCOUNTService();
         private readonly TYPEACCOUNTService typeAccountService = new TYPEACCOUNTService();
-        public Admin()
+        private string currentUsername; 
+
+        public Admin(string username)
         {
             InitializeComponent();
+            currentUsername = username;
             OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
@@ -178,9 +181,7 @@ namespace Cafe
                     dtgvFood.Rows[index].Cells[2].Value = item.COFFEETYPE.NAME;
                 }
                 dtgvFood.Rows[index].Cells[3].Value = item.PRICE;
-          
-
-            }
+        }
         }
 
         private void BindGridEmployees(List<EMPLOYEE> employees)
@@ -259,8 +260,8 @@ namespace Cafe
                 cboloaisp.Text = tenLoai;
                 txtgiadoan.Text = selectedRow.Cells[3].Value.ToString();
                 var khuyenmaivalue = selectedRow.Cells[4].Value;
-                
-                if( khuyenmaivalue != null)
+
+                if (khuyenmaivalue != null)
                 {
                     cmbkhuyenmai.Text = khuyenmaivalue.ToString();
                 }
@@ -268,7 +269,7 @@ namespace Cafe
                 {
                     cmbkhuyenmai.SelectedIndex = -1;
                 }
-                ;
+     
 
             }
         }
@@ -1270,7 +1271,6 @@ namespace Cafe
                     USERNAME = txttentk.Text,
                     PASSWORD = txtmatkhau.Text,
                     IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
-                    
                 };
                 if (!string.IsNullOrEmpty(cmbidnhanvien.Text))
                 {
@@ -1367,7 +1367,6 @@ namespace Cafe
                     USERNAME = txttentk.Text,
                     PASSWORD = txtmatkhau.Text,
                     IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
-                    
                 };
                 if (!string.IsNullOrEmpty(cmbidnhanvien.Text))
                 {
@@ -1438,7 +1437,8 @@ namespace Cafe
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Menu fm = new Menu();
+     
+            Menu fm = new Menu(currentUsername);
             this.Hide();
             fm.ShowDialog();
             this.Show();
