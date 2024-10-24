@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BUS;
+
 using DAL.Entities;
 
 namespace Cafe
@@ -63,6 +63,14 @@ namespace Cafe
             }
             else
                 return;
+        }
+
+        private void ddToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
         }
     }
 }

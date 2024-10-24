@@ -13,6 +13,7 @@ using BUS;
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OfficeOpenXml;
+using System.Security.Principal;
 
 
 namespace Cafe
@@ -42,7 +43,9 @@ namespace Cafe
                 setGridViewStyle(dtgvFood);
                 var listmenu = menuService.GetAll();
                 var listcoffee = cOFFEETYPEService.GetAll();
+                var listdis = discountService.GetAll();
                 FillCoffeetypeCombobox(listcoffee);
+                FilltypedisCombobox(listdis);
                 BindGrid(listmenu);
 
                 var listEmployee = employeeService.GetAll();
@@ -60,7 +63,7 @@ namespace Cafe
                 setGridViewStyle(dtgvtk);
                 var listaccount = accountService.GetAll();
                 var listaccounttype = typeAccountService.GetAll();
-                //FillEmployCombobox(listEmployee);
+                FillEmployCombobox(listEmployee);
                 FilltypeAccountCombobox(listaccounttype);
                 BindGridTK(listaccount);
 
@@ -113,13 +116,20 @@ namespace Cafe
             this.cboloaitk.DisplayMember = "NAME";
             this.cboloaitk.ValueMember = "IDTYPETK";
         }
-        //private void FillEmployCombobox(List<EMPLOYEE> listem)
-        //{
-        //    listem.Insert(0, new EMPLOYEE());
-        //    this.cmbidnhanvien.DataSource = listem;
-        //    this.cmbidnhanvien.DisplayMember = "NAME";
-        //    this.cmbidnhanvien.ValueMember = "IDEMPLOYEE";
-        //}
+        private void FilltypedisCombobox(List<DISCOUNT> listdiscount)
+        {
+            listdiscount.Insert(0, new DISCOUNT());
+            this.cmbkhuyenmai.DataSource = listdiscount;
+            this.cmbkhuyenmai.DisplayMember = "NAME";
+            this.cmbkhuyenmai.ValueMember = "IDDIS";
+        }
+        private void FillEmployCombobox(List<EMPLOYEE> listem)
+        {
+            listem.Insert(0, new EMPLOYEE());
+            this.cmbidnhanvien.DataSource = listem;
+            this.cmbidnhanvien.DisplayMember = "NAME";
+            this.cmbidnhanvien.ValueMember = "IDEMPLOYEE";
+        }
         private void BindGridDiscount(List<DISCOUNT> listdiscount)
         {
             dtgvdis.Rows.Clear();
@@ -157,13 +167,19 @@ namespace Cafe
             {
                 int index = dtgvFood.Rows.Add();
                 dtgvFood.Rows[index].Cells[0].Value = item.IDMENU;
-                dtgvFood.Rows[index].Cells[1].Value = item.IDTYPE;
-                dtgvFood.Rows[index].Cells[2].Value = item.NAME;
+                dtgvFood.Rows[index].Cells[4].Value = item.IDDIS;
+                if (item.DISCOUNT != null)
+                {
+                    dtgvFood.Rows[index].Cells[4].Value = item.DISCOUNT.NAME;
+                }
+                dtgvFood.Rows[index].Cells[1].Value = item.NAME;
                 if (item.COFFEETYPE != null)
                 {
-                    dtgvFood.Rows[index].Cells[3].Value = item.COFFEETYPE.NAME;
+                    dtgvFood.Rows[index].Cells[2].Value = item.COFFEETYPE.NAME;
                 }
-                dtgvFood.Rows[index].Cells[4].Value = item.PRICE;
+                dtgvFood.Rows[index].Cells[3].Value = item.PRICE;
+          
+
             }
         }
 
@@ -208,6 +224,10 @@ namespace Cafe
                     IDTYPE = (int)cboloaisp.SelectedValue,
                     AVATARMENU = avartarFilePath
                 };
+                if (!string.IsNullOrEmpty(cmbkhuyenmai.Text))
+                {
+                    newMenuItem.IDDIS = int.Parse(cmbkhuyenmai.SelectedValue.ToString());
+                }
 
                 var (result, message) = menuService.Add(newMenuItem);
 
@@ -234,11 +254,22 @@ namespace Cafe
                 int menuID = (int)selectedRow.Cells[0].Value;
                 ShowAvatar(menuID);
 
-                txttensp.Text = selectedRow.Cells[2].Value.ToString();
-                txtgiadoan.Text = selectedRow.Cells[4].Value.ToString();
-
-                string tenLoai = selectedRow.Cells[3].Value.ToString();
+                txttensp.Text = selectedRow.Cells[1].Value.ToString();
+                string tenLoai = selectedRow.Cells[2].Value.ToString();
                 cboloaisp.Text = tenLoai;
+                txtgiadoan.Text = selectedRow.Cells[3].Value.ToString();
+                var khuyenmaivalue = selectedRow.Cells[4].Value;
+                
+                if( khuyenmaivalue != null)
+                {
+                    cmbkhuyenmai.Text = khuyenmaivalue.ToString();
+                }
+                else
+                {
+                    cmbkhuyenmai.SelectedIndex = -1;
+                }
+                ;
+
             }
         }
         private void ShowAvatar(int menuID)
@@ -372,8 +403,17 @@ namespace Cafe
                         NAME = txttensp.Text,
                         PRICE = price,
                         IDTYPE = (int)cboloaisp.SelectedValue,
+                        IDDIS = (int)cmbkhuyenmai.SelectedValue,
                         AVATARMENU = avartarFilePath
                     };
+                    if (!string.IsNullOrEmpty(cmbkhuyenmai.Text))
+                    {
+                        updatedMenuItem.IDDIS = int.Parse(cmbkhuyenmai.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        updatedMenuItem.IDDIS = null;
+                    }
 
                     var (result, message) = menuService.Update(updatedMenuItem);
 
@@ -987,13 +1027,17 @@ namespace Cafe
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView3.Rows.Count)
             {
                 DataGridViewRow dataGridViewRow = dataGridView3.Rows[e.RowIndex];
-                textBox20.Text = dataGridViewRow.Cells[0].Value.ToString();
-                textBox19.Text = dataGridViewRow.Cells[1].Value.ToString();
-                dateTimePicker3.Text = dataGridViewRow.Cells[2].Value.ToString();
-                textBox1.Text = dataGridViewRow.Cells[3].Value.ToString();
+                textBox20.Text = dataGridViewRow.Cells[0]?.Value?.ToString();
+                textBox19.Text = dataGridViewRow.Cells[1]?.Value?.ToString();
+                dateTimePicker3.Value = DateTime.TryParse(dataGridViewRow.Cells[2]?.Value?.ToString(), out DateTime dateValue) ? dateValue : DateTime.Now;
+                textBox1.Text = dataGridViewRow.Cells[3]?.Value?.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -1226,8 +1270,12 @@ namespace Cafe
                     USERNAME = txttentk.Text,
                     PASSWORD = txtmatkhau.Text,
                     IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
-                    IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString())
+                    
                 };
+                if (!string.IsNullOrEmpty(cmbidnhanvien.Text))
+                {
+                    account.IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString());
+                }
                 var (result, message) = accountService.Add(account);
                 MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
@@ -1319,8 +1367,16 @@ namespace Cafe
                     USERNAME = txttentk.Text,
                     PASSWORD = txtmatkhau.Text,
                     IDTYPETK = int.Parse(cboloaitk.SelectedValue.ToString()),
-                    IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString())
+                    
                 };
+                if (!string.IsNullOrEmpty(cmbidnhanvien.Text))
+                {
+                    account.IDEMPLOYEE = int.Parse(cmbidnhanvien.SelectedValue.ToString());
+                }
+                else
+                {
+                    account.IDEMPLOYEE = null;
+                }
                 var (result, message) = accountService.Update(account);
                 MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
@@ -1371,6 +1427,37 @@ namespace Cafe
         {
 
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Menu fm = new Menu();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                Application.Exit();
+            }
+            else
+                return;
+        }
+
+
     } 
 }
 

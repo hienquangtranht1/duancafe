@@ -39,8 +39,10 @@ namespace Cafe
                 if (dn != null && dn.Count > 0 && dn[0].PASSWORD == password)
                 {
 
-                    Menu khoa = new Menu();
+                    Menu khoa = new Menu();    
+                    this.Hide();
                     khoa.ShowDialog();
+                    this.Show();
 
                 }
                 else
