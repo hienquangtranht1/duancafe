@@ -104,6 +104,7 @@ namespace BUS
                 existingMenuItem.PRICE = menu.PRICE;
                 existingMenuItem.IDTYPE = menu.IDTYPE;
                 existingMenuItem.AVATARMENU = menu.AVATARMENU;
+                existingMenuItem.IDDIS= menu.IDDIS;
 
                 try
                 {

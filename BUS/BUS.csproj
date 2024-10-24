@@ -84,7 +84,6 @@
     <Compile Include="BILLService.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="COFFEETYPEService.cs" />
-    <Compile Include="DISCOUNTMENUService.cs" />
     <Compile Include="DISCOUNTService.cs" />
     <Compile Include="EMPLOYEEService.cs" />
     <Compile Include="INVENTORYService.cs" />
