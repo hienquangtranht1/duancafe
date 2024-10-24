@@ -13,7 +13,6 @@ namespace DAL.Entities
         public MENU()
         {
             BILLINFOes = new HashSet<BILLINFO>();
-            DISCOUNTMENUs = new HashSet<DISCOUNTMENU>();
         }
 
         [Key]
@@ -28,6 +27,8 @@ namespace DAL.Entities
 
         public double PRICE { get; set; }
 
+        public int? IDDIS { get; set; }
+
         [StringLength(100)]
         public string AVATARMENU { get; set; }
 
@@ -36,7 +37,6 @@ namespace DAL.Entities
 
         public virtual COFFEETYPE COFFEETYPE { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
+        public virtual DISCOUNT DISCOUNT { get; set; }
     }
 }

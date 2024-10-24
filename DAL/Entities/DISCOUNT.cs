@@ -12,7 +12,7 @@ namespace DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DISCOUNT()
         {
-            DISCOUNTMENUs = new HashSet<DISCOUNTMENU>();
+            MENUs = new HashSet<MENU>();
         }
 
         [Key]
@@ -31,10 +31,7 @@ namespace DAL.Entities
         [Column(TypeName = "date")]
         public DateTime? DATE_FINISH { get; set; }
 
-        [StringLength(100)]
-        public string STATUS { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
+        public virtual ICollection<MENU> MENUs { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace DAL.Entities
         public virtual DbSet<BILLINFO> BILLINFOes { get; set; }
         public virtual DbSet<COFFEETYPE> COFFEETYPEs { get; set; }
         public virtual DbSet<DISCOUNT> DISCOUNTs { get; set; }
-        public virtual DbSet<DISCOUNTMENU> DISCOUNTMENUs { get; set; }
         public virtual DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
         public virtual DbSet<INVENTORY> INVENTORies { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
@@ -42,19 +41,8 @@ namespace DAL.Entities
                 .WithRequired(e => e.COFFEETYPE)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<DISCOUNT>()
-                .HasMany(e => e.DISCOUNTMENUs)
-                .WithRequired(e => e.DISCOUNT)
-                .HasForeignKey(e => e.IDDISCOUNT)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<MENU>()
                 .HasMany(e => e.BILLINFOes)
-                .WithRequired(e => e.MENU)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<MENU>()
-                .HasMany(e => e.DISCOUNTMENUs)
                 .WithRequired(e => e.MENU)
                 .WillCascadeOnDelete(false);
 

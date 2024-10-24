@@ -86,7 +86,6 @@
     <Compile Include="Entities\CAFEModel.cs" />
     <Compile Include="Entities\COFFEETYPE.cs" />
     <Compile Include="Entities\DISCOUNT.cs" />
-    <Compile Include="Entities\DISCOUNTMENU.cs" />
     <Compile Include="Entities\EMPLOYEE.cs" />
     <Compile Include="Entities\INVENTORY.cs" />
     <Compile Include="Entities\MENU.cs" />

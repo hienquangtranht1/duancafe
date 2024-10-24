@@ -1,0 +1,54 @@
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\obj\Debug\DAL.csproj.Up2Date
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\obj\Debug\DAL.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\obj\Debug\DAL.pdb
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EPPlus.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Buffers.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Memory.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\EPPlus.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Buffers.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Memory.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\HOANG  ANH\source\repos\duancafe\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\DAL.dll.config
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\DAL.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\DAL.pdb
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EntityFramework.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EPPlus.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Buffers.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Memory.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EntityFramework.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\EPPlus.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Buffers.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Memory.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\obj\Debug\DAL.csproj.Up2Date
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\obj\Debug\DAL.dll
+C:\Users\HIEN\Downloads\duancafe\duancafe\DAL\obj\Debug\DAL.pdb
