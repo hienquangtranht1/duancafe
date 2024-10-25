@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Input;
+using System.IO;
 
 namespace Cafe
 {
@@ -32,26 +34,31 @@ namespace Cafe
             InitializeComponent();
             currentUsername = username;
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
+
+        private void ShowAvatar(int menuID)
+        {
+            string folderPath = Path.Combine(Application.StartupPath, "Images");
+            var menuItem = mENUService.FindById(menuID);
+            if (menuItem != null && !string.IsNullOrEmpty(menuItem.AVATARMENU))
+            {
+                string avatarFilePath = Path.Combine(folderPath, menuItem.AVATARMENU);
+                if (File.Exists(avatarFilePath))
+                {
+                    pictureBox1.Image = Image.FromFile(avatarFilePath);
+                }
+                else
+                {
+                    pictureBox1.Image = null;
+                }
+            }
         }
 
 
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var account = aCCOUNTService.GetCurrentUser(currentUsername); // Lấy thông tin tài khoản
+            var account = aCCOUNTService.GetCurrentUser(currentUsername); 
 
             if (account == null)
             {
@@ -81,14 +88,14 @@ namespace Cafe
         
         private void BindGridTable(List<TABLECOFFEE> table)
         {
-            dataGridView2.Rows.Clear();
-            var emptyTables = table.Where(t => t.STATUS == "KHÔNG CÓ KHÁCH").ToList();
-            foreach (var tables in table)
+            dataGridView2.Rows.Clear(); 
+
+            foreach (var tablse in table) 
             {
                 int index = dataGridView2.Rows.Add();
-                dataGridView2.Rows[index].Cells[0].Value = tables.IDTABLE;
-                dataGridView2.Rows[index].Cells[1].Value = tables.NAME;
-                dataGridView2.Rows[index].Cells[2].Value = tables.STATUS;
+                dataGridView2.Rows[index].Cells[0].Value = tablse.IDTABLE;
+                dataGridView2.Rows[index].Cells[1].Value = tablse.NAME;
+                dataGridView2.Rows[index].Cells[2].Value = tablse.STATUS;
             }
         }
         private void Menu_Load(object sender, EventArgs e)
@@ -119,20 +126,25 @@ namespace Cafe
             Form1 fm = new Form1();
             this.Hide();
             fm.ShowDialog();
-            
+            this.Show();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            var allTables = table.GetAll(); 
+            List<TABLECOFFEE> filteredTables;
+
             if (checkBox1.Checked)
             {
-                var emptyTables = allTable.Where(t => t.STATUS == "KHÔNG CÓ KHÁCH").ToList();
-                BindGridTable(emptyTables);
+                filteredTables = allTables.Where(t => t.STATUS == "KHÔNG CÓ KHÁCH").ToList();
             }
             else
             {
-                BindGridTable(allTable);
+                filteredTables = allTables;
             }
+
+            BindGridTable(filteredTables);
+
         }
         public void setGridViewStyle(DataGridView dgview)
         {
@@ -199,8 +211,9 @@ namespace Cafe
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow dataGridViewRow = dgvsv.Rows[e.RowIndex];
+                int menuID = (int)dataGridViewRow.Cells[0].Value;
+                ShowAvatar(menuID);
                 txttensp.Text = dataGridViewRow.Cells[1].Value.ToString();
-                selectedMSSP = dgvsv.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var selectedmenuidString = dataGridViewRow.Cells[0].Value.ToString();
                 if (!string.IsNullOrEmpty(selectedmenuidString) && int.TryParse(selectedmenuidString, out int selectedmenuid))
                 {
@@ -323,17 +336,16 @@ namespace Cafe
         private int selectedTableId = 0;
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.ColumnIndex == 3 && e.RowIndex >= 0) 
             {
-                DataGridViewRow dataGridViewRow = dataGridView2.Rows[e.RowIndex];
-                string status = dataGridViewRow.Cells[2].Value.ToString(); // Trạng thái bàn
+                int tableId = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
+                bool isChecked = (bool)dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                string newStatus = isChecked ? "CÓ KHÁCH" : "KHÔNG CÓ KHÁCH";
 
-                if (status == "KHÔNG CÓ KHÁCH")
-                {
-                    selectedTableId = Convert.ToInt32(dataGridViewRow.Cells[0].Value); // Chuyển đổi ID bàn sang kiểu int
-                }
-
-                txtsb.Text = dataGridViewRow.Cells[0].Value.ToString();
+                TABLECOFFEEService tableService = new TABLECOFFEEService();
+                var result = tableService.UpdateTableStatus(tableId, newStatus);
+                MessageBox.Show(result.message);
+                RefreshDataGridView();
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -384,98 +396,42 @@ namespace Cafe
                 MessageBox.Show("Vui lòng chọn một sản phẩm để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private List<BILLINFO> selectedItems = new List<BILLINFO>();
+
         private void btntt_Click(object sender, EventArgs e)
         {
             if (selectedTableId > 0)
             {
-                BILL newBill = new BILL
-                {
-                    IDBILL = GenerateBillId(),
-                    IDTABLE = selectedTableId,
-                    dateCheckIn = DateTime.Now,
-                    dateCheckOut = DateTime.Now,
-                    STATUS = 1,
-                    //IDEMPLOYEE = GetCurrentEmployeeId(currentUsername) // Update with currentUsername parameter
-                };
-
-                bILLService.Add(newBill);
-
-                // Loop through each row in dataGridView1 to add items to BILLINFO
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[0].Value != null)
-                    {
-                        // Retrieve menu ID, quantity, price and discount from dataGridView1
-                        int menuId = Convert.ToInt32(row.Cells[0].Value);
-                        float quantity = Convert.ToInt32(row.Cells[3].Value); // Số lượng
-                        float price = Convert.ToSingle(row.Cells[4].Value);  
-                        float discount = 0.0f; 
-                        double count = price * quantity * (1 - discount);
-
-                        // Create a new BILLINFO instance
-                        BILLINFO billInfo = new BILLINFO
-                        {
-                            IDINFO = GenerateBillInfoId(),
-                            IDBILL = newBill.IDBILL,
-                            IDMENU = menuId,
-                            COUNT = count 
-                        };
-
-                        // Save the BILLINFO to the database
-                        bILLINFOService.Add(billInfo);
-                    }
-                }
-
-                // Update the status of the selected table to 'Occupied'
+                
                 table.UpdateTableStatus(selectedTableId, "CÓ KHÁCH");
                 var listtable = table.GetAll();
                 BindGridTable(listtable);
-
-                // Clear the dataGridView1 after processing the bill
+                dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
-                UpdateTotalPrice();
 
-                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một bàn trước khi thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
         }
-        private int GenerateBillId()
-        {
-            // Generate a unique ID for BILL, or use database auto-increment if supported
-            return bILLService.GenerateNewBillId();
-        }
-
-        private int GenerateBillInfoId()
-        {
-            // Generate a unique ID for BILLINFO, or use database auto-increment if supported
-            return bILLINFOService.GenerateNewBillInfoId();
-        }
-
-        
-            private void btnranh_Click(object sender, EventArgs e)
+        private void btnranh_Click(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 int tableId = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value);
-                string status = "KHÔNG CÓ KHÁCH";
+                string newStatus = "KHÔNG CÓ KHÁCH";
                 TABLECOFFEEService tableService = new TABLECOFFEEService();
-                var result = tableService.UpdateTableStatus(tableId, status);
+                var result = tableService.UpdateTableStatus(tableId, newStatus);
+                MessageBox.Show(result.message);
 
-                if (result.success)
-                {
-                    dataGridView2.SelectedRows[0].Cells[2].Value = status;
-                }
-                else
-                {
-                    MessageBox.Show(result.message);
-                }
+                RefreshDataGridView();
             }
+        }
+        private void RefreshDataGridView()
+        {
+            TABLECOFFEEService tableService = new TABLECOFFEEService();
+            var tables = tableService.GetAll();
+            BindGridTable(tables);
         }
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -488,6 +444,5 @@ namespace Cafe
                 txttn.Text = dataGridViewRow.Cells[4].Value.ToString();
             }
         }
-
     }
 }
