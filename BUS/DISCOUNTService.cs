@@ -93,5 +93,17 @@ namespace BUS
                 return model.DISCOUNTs.Find(id);
             }
         }
+        public List<DISCOUNT> FindByMenuId(int menuId)
+        {
+            using (CAFEModel model = new CAFEModel())
+            {
+                return (from d in model.DISCOUNTs
+                        join m in model.MENUs on d.IDDIS equals m.IDDIS 
+                        where m.IDMENU == menuId
+                              && d.DATE_START <= DateTime.Now
+                              && d.DATE_FINISH >= DateTime.Now
+                        select d).ToList();
+            }
+        }
     }
 }

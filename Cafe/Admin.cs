@@ -30,7 +30,7 @@ namespace Cafe
         private readonly BILLService bILLService = new BILLService();
         private readonly ACCOUNTService accountService = new ACCOUNTService();
         private readonly TYPEACCOUNTService typeAccountService = new TYPEACCOUNTService();
-        private string currentUsername; 
+        private string currentUsername;
 
         public Admin(string username)
         {
@@ -58,7 +58,7 @@ namespace Cafe
                 BindGridDiscount(listdiscount);
                 setGridViewStyle(dtgvdis);
                 setGridViewStyle(dtgvnv);
-               
+
                 setGridViewStyle(dataGridView1);
                 var listtable = table.GetAll();
                 BindGridTable(listtable);
@@ -181,7 +181,7 @@ namespace Cafe
                     dtgvFood.Rows[index].Cells[2].Value = item.COFFEETYPE.NAME;
                 }
                 dtgvFood.Rows[index].Cells[3].Value = item.PRICE;
-        }
+            }
         }
 
         private void BindGridEmployees(List<EMPLOYEE> employees)
@@ -269,7 +269,7 @@ namespace Cafe
                 {
                     cmbkhuyenmai.SelectedIndex = -1;
                 }
-     
+
 
             }
         }
@@ -829,8 +829,8 @@ namespace Cafe
                         }
                     }
                 }
-            
-                 else
+
+                else
                 {
                     MessageBox.Show("Vui lòng chọn một khuyến mãi để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -1174,28 +1174,28 @@ namespace Cafe
         }
 
 
-        void loadlistbillbydate( DateTime checkin,DateTime checkout) 
+        void loadlistbillbydate(DateTime checkin, DateTime checkout)
         {
             try
             {
-                
+
                 List<BILL> billList = bILLService.GetBillListByDate(checkin, checkout);
 
-               
+
                 var billViewList = billList.Select(b => new
                 {
                     IDBILL = b.IDBILL,
-                    TableName = b.TABLECOFFEE.NAME, 
-                    Status = b.STATUS == 1 ? "Đã thanh toán" : "Chưa thanh toán", 
-                    DateCheckIn = b.dateCheckIn,  
-                    DateCheckOut = b.dateCheckOut,  
-                    TotalPrice = b.BILLINFOes.Sum(bi => bi.COUNT * bi.MENU.PRICE) 
+                    TableName = b.TABLECOFFEE.NAME,
+                    Status = b.STATUS == 1 ? "Đã thanh toán" : "Chưa thanh toán",
+                    DateCheckIn = b.dateCheckIn,
+                    DateCheckOut = b.dateCheckOut,
+                    TotalPrice = b.BILLINFOes.Sum(bi => bi.COUNT)
                 }).ToList();
 
-               
+
                 dgvBill.DataSource = billViewList;
 
-               
+
                 setGridViewStyle(dgvBill);
             }
             catch (Exception ex)
@@ -1209,21 +1209,21 @@ namespace Cafe
         }
         private void ExportToExcel(DataGridView dgv)
         {
-          
+
             OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
             using (ExcelPackage excelPackage = new ExcelPackage())
             {
-               
+
                 var worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
 
-               
+
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
                     worksheet.Cells[1, i + 1].Value = dgv.Columns[i].HeaderText;
                 }
 
-               
+
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
@@ -1232,7 +1232,7 @@ namespace Cafe
                     }
                 }
 
-              
+
                 var saveFileDialog = new SaveFileDialog
                 {
                     Filter = "Excel Files|*.xlsx",
@@ -1250,7 +1250,7 @@ namespace Cafe
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
-            ExportToExcel(dgvBill); 
+            ExportToExcel(dgvBill);
         }
 
         private void btnaddtk_Click(object sender, EventArgs e)
@@ -1437,7 +1437,7 @@ namespace Cafe
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-     
+
             Menu fm = new Menu(currentUsername);
             this.Hide();
             fm.ShowDialog();
@@ -1456,8 +1456,6 @@ namespace Cafe
             else
                 return;
         }
-
-
-    } 
+    }
 }
 

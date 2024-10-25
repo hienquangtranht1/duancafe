@@ -43,6 +43,7 @@
             this.txttmk.Name = "txttmk";
             this.txttmk.Size = new System.Drawing.Size(199, 34);
             this.txttmk.TabIndex = 32;
+            this.txttmk.Text = "Admin123";
             // 
             // txttdn
             // 
@@ -51,6 +52,7 @@
             this.txttdn.Name = "txttdn";
             this.txttdn.Size = new System.Drawing.Size(199, 34);
             this.txttdn.TabIndex = 31;
+            this.txttdn.Text = "Admin";
             // 
             // lblmk
             // 

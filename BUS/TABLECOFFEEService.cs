@@ -114,5 +114,38 @@ namespace BUS
             }
             return (true, "Cập nhật bàn thành công.");
         }
+        public (bool success, string message) UpdateTableStatus(int tableId, string status)
+        {
+            if (string.IsNullOrWhiteSpace(status))
+            {
+                return (false, "Trạng thái không được để trống.");
+            }
+
+            using (CAFEModel model = new CAFEModel())
+            {
+                var existingTable = model.TABLECOFFEEs.SingleOrDefault(t => t.IDTABLE == tableId);
+                if (existingTable == null)
+                {
+                    return (false, "Không tìm thấy bàn để cập nhật trạng thái.");
+                }
+
+                existingTable.STATUS = status;
+
+                try
+                {
+                    model.SaveChanges();
+                    return (true, "Cập nhật trạng thái bàn thành công.");
+                }
+                catch (DbUpdateException dbEx)
+                {
+                    var innerEx = dbEx.InnerException?.Message ?? dbEx.Message;
+                    return (false, $"Đã xảy ra lỗi khi cập nhật cơ sở dữ liệu: {innerEx}");
+                }
+                catch (Exception ex)
+                {
+                    return (false, $"Đã xảy ra lỗi: {ex.Message}");
+                }
+            }
+        }
     }
 }

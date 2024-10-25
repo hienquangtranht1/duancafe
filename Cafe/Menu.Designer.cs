@@ -60,6 +60,7 @@
             this.txtkhuyenmai = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Trangthaib = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -87,6 +89,7 @@
             this.btnranh.TabIndex = 14;
             this.btnranh.Text = "Rãnh";
             this.btnranh.UseVisualStyleBackColor = false;
+            this.btnranh.Click += new System.EventHandler(this.btnranh_Click);
             // 
             // btnban
             // 
@@ -108,6 +111,7 @@
             this.cmbloaisp.Name = "cmbloaisp";
             this.cmbloaisp.Size = new System.Drawing.Size(200, 24);
             this.cmbloaisp.TabIndex = 28;
+            this.cmbloaisp.SelectedIndexChanged += new System.EventHandler(this.cmbloaisp_SelectedIndexChanged);
             // 
             // lblkhoa
             // 
@@ -134,6 +138,7 @@
             this.dgvsv.RowTemplate.Height = 24;
             this.dgvsv.Size = new System.Drawing.Size(288, 123);
             this.dgvsv.TabIndex = 29;
+            this.dgvsv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsv_CellClick);
             // 
             // dgvmssp
             // 
@@ -248,6 +253,7 @@
             this.btntt.TabIndex = 40;
             this.btntt.Text = "Thanh toán:";
             this.btntt.UseVisualStyleBackColor = false;
+            this.btntt.Click += new System.EventHandler(this.btntt_Click);
             // 
             // dataGridView1
             // 
@@ -267,6 +273,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(566, 203);
             this.dataGridView1.TabIndex = 41;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -309,6 +316,7 @@
             this.btnsua.TabIndex = 43;
             this.btnsua.Text = "Sửa";
             this.btnsua.UseVisualStyleBackColor = true;
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
             // 
             // btnthem
             // 
@@ -319,6 +327,7 @@
             this.btnthem.TabIndex = 42;
             this.btnthem.Text = "Thêm";
             this.btnthem.UseVisualStyleBackColor = true;
+            this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
             // btnxoa
             // 
@@ -329,6 +338,7 @@
             this.btnxoa.TabIndex = 44;
             this.btnxoa.Text = "Xóa";
             this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // txttt
             // 
@@ -373,6 +383,7 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.TenBan,
             this.Trangthaib});
             this.dataGridView2.Location = new System.Drawing.Point(53, 126);
@@ -382,6 +393,15 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(284, 253);
             this.dataGridView2.TabIndex = 48;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã Bàn";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
             // 
             // TenBan
             // 
@@ -461,12 +481,24 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(187, 103);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(150, 20);
+            this.checkBox1.TabIndex = 53;
+            this.checkBox1.Text = "Bàn không có khách";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1906, 555);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView2);
@@ -543,8 +575,6 @@
         private System.Windows.Forms.TextBox txtkhuyenmai;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Trangthaib;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
@@ -552,5 +582,9 @@
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Trangthaib;
     }
 }
