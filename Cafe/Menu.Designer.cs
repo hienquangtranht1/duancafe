@@ -428,7 +428,6 @@
             this.label7.Size = new System.Drawing.Size(189, 22);
             this.label7.TabIndex = 50;
             this.label7.Text = "Thông tin chọn bàn:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // menuStrip1
             // 
@@ -477,9 +476,9 @@
             this.pictureBox1.Location = new System.Drawing.Point(433, 254);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(288, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // checkBox1
             // 
