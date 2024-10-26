@@ -51,6 +51,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvgiatien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvtt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnsua = new System.Windows.Forms.Button();
             this.btnthem = new System.Windows.Forms.Button();
@@ -265,6 +266,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dgvgiatien,
             this.dgvsl,
+            this.Column2,
             this.dgvtt});
             this.dataGridView1.Location = new System.Drawing.Point(1032, 126);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -273,7 +275,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(566, 203);
             this.dataGridView1.TabIndex = 41;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -300,6 +302,12 @@
             this.dgvsl.HeaderText = "Số lượng";
             this.dgvsl.MinimumWidth = 6;
             this.dgvsl.Name = "dgvsl";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Khuyến Mãi";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
             // 
             // dgvtt
             // 
@@ -476,7 +484,11 @@
             this.pictureBox1.Location = new System.Drawing.Point(433, 254);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(288, 154);
+<<<<<<< HEAD
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+=======
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+>>>>>>> 4a0e6233c086c3f4c6949f7bb63b1b244cc79b76
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
             // 
@@ -566,11 +578,6 @@
         private System.Windows.Forms.Button btnxoa;
         private System.Windows.Forms.TextBox txttt;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvgiatien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvsl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtt;
         private System.Windows.Forms.TextBox txtkhuyenmai;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -585,5 +592,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Trangthaib;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvgiatien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvsl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtt;
     }
 }
