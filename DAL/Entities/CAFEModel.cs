@@ -33,7 +33,6 @@ namespace DAL.Entities
             modelBuilder.Entity<COFFEETYPE>()
                 .HasMany(e => e.INVENTORies)
                 .WithRequired(e => e.COFFEETYPE)
-                .HasForeignKey(e => e.IDCOFFEE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<COFFEETYPE>()

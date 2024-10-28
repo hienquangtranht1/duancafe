@@ -15,15 +15,11 @@ namespace DAL.Entities
 
         public int IDBILL { get; set; }
 
-        public int? IDEMPLOYEE { get; set; }
-
         public int IDMENU { get; set; }
 
         public double COUNT { get; set; }
 
         public virtual BILL BILL { get; set; }
-
-        public virtual EMPLOYEE EMPLOYEE { get; set; }
 
         public virtual MENU MENU { get; set; }
     }

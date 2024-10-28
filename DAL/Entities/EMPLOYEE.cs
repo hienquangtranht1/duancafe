@@ -13,7 +13,6 @@ namespace DAL.Entities
         public EMPLOYEE()
         {
             ACCOUNTs = new HashSet<ACCOUNT>();
-            BILLINFOes = new HashSet<BILLINFO>();
         }
 
         [Key]
@@ -36,8 +35,5 @@ namespace DAL.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCOUNT> ACCOUNTs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLINFO> BILLINFOes { get; set; }
     }
 }

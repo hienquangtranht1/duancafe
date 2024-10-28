@@ -13,7 +13,7 @@ namespace DAL.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDINVENTORY { get; set; }
 
-        public int IDCOFFEE { get; set; }
+        public int IDTYPE { get; set; }
 
         public double QUANTITY { get; set; }
 
@@ -22,10 +22,6 @@ namespace DAL.Entities
 
         [Column(TypeName = "date")]
         public DateTime? DATE_EXPIRED { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string UNIT { get; set; }
 
         public virtual COFFEETYPE COFFEETYPE { get; set; }
     }
