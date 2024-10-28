@@ -11,10 +11,6 @@ using System.Windows.Forms;
 
 using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-<<<<<<< HEAD
-=======
-using System.Windows.Input;
->>>>>>> 4a0e6233c086c3f4c6949f7bb63b1b244cc79b76
 using System.IO;
 
 namespace Cafe
@@ -31,14 +27,17 @@ namespace Cafe
         private readonly DISCOUNTService dISCOUNTService = new DISCOUNTService();
         private readonly BILLService bILLService = new BILLService();
         private readonly BILLINFOService bILLINFOService = new BILLINFOService();
+        
         public Menu(string username)
         {
 
             InitializeComponent();
             currentUsername = username;
+            
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-<<<<<<< HEAD
         }
 
 
@@ -69,12 +68,9 @@ namespace Cafe
                 }
             }
         }
-=======
-
->>>>>>> 4a0e6233c086c3f4c6949f7bb63b1b244cc79b76
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var account = aCCOUNTService.GetCurrentUser(currentUsername);
+            var account = aCCOUNTService.GetCurrentUser(currentUsername); // Lấy thông tin tài khoản
 
             if (account == null)
             {
@@ -87,7 +83,13 @@ namespace Cafe
                 Admin adminForm = new Admin(currentUsername);
                 this.Hide();
                 adminForm.ShowDialog();
-
+                adminForm.FormClosed += (s, args) =>
+                {
+                    var listtable = table.GetAll();
+                    BindGridTable(listtable);
+                    var listtype = cOFFEETYPEService.GetAll();
+                    FillCoffeeTypes();
+                };
 
             }
             else
@@ -95,11 +97,27 @@ namespace Cafe
                 MessageBox.Show("Bạn không có quyền truy cập vào phần này.", "Truy cập bị từ chối", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
+        
+        private void BindGridTable(List<TABLECOFFEE> table)
+        {
+            dataGridView2.Rows.Clear();
+            var emptyTables = table.Where(t => t.STATUS == "KHÔNG CÓ KHÁCH").ToList();
+            foreach (var tables in table)
+            {
+                int index = dataGridView2.Rows.Add();
+                dataGridView2.Rows[index].Cells[0].Value = tables.IDTABLE;
+                dataGridView2.Rows[index].Cells[1].Value = tables.NAME;
+                dataGridView2.Rows[index].Cells[2].Value = tables.STATUS;
+            }
+        }
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            setGridViewStyle(dataGridView1);
+            var listtable = table.GetAll();
+            BindGridTable(listtable);
+            allTable = table.GetAll();
+            BindGridTable(allTable);
+            FillCoffeeTypes();
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,7 +139,6 @@ namespace Cafe
             this.Hide();
             fm.ShowDialog();
             this.Show();
-<<<<<<< HEAD
             
         }
 
@@ -253,6 +270,7 @@ namespace Cafe
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
+            
             int soBan;
             if (!int.TryParse(txtsb.Text, out soBan) || soBan == 0)
             {
@@ -396,6 +414,7 @@ namespace Cafe
         
         private void btntt_Click(object sender, EventArgs e)
         {
+            
             if (selectedTableId > 0)
             {
                 BILL newBill = new BILL
@@ -432,7 +451,8 @@ namespace Cafe
                             IDINFO = GenerateBillInfoId(),
                             IDBILL = newBill.IDBILL,
                             IDMENU = menuId,
-                            COUNT = count
+                            COUNT = count,
+                            
                         };
                         bILLINFOService.Add(billInfo);
                         UpdateTotalPrice();
@@ -493,8 +513,6 @@ namespace Cafe
                 txtkhuyenmai.Text = dataGridViewRow.Cells[4].Value.ToString();
                 txttt.Text = dataGridViewRow.Cells[5].Value.ToString();
             }
-=======
->>>>>>> 4a0e6233c086c3f4c6949f7bb63b1b244cc79b76
         }
     }
 }
