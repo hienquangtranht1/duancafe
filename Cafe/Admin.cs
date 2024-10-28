@@ -14,7 +14,8 @@ using DAL.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OfficeOpenXml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+using System.Security.Principal;
+using System.Data.Entity.Validation;
 
 namespace Cafe
 {
@@ -30,6 +31,8 @@ namespace Cafe
         private readonly BILLService bILLService = new BILLService();
         private readonly ACCOUNTService accountService = new ACCOUNTService();
         private readonly TYPEACCOUNTService typeAccountService = new TYPEACCOUNTService();
+        private readonly INVENTORYService inventoryService = new INVENTORYService();
+
         private string currentUsername;
 
         public Admin(string username)
@@ -75,6 +78,12 @@ namespace Cafe
                 BindGridCoffeeType(listtype);
 
 
+                setGridViewStyle(dgvkho);
+                var listinventory = inventoryService.GetAll();
+                var listcoffeetype = cOFFEETYPEService.GetAll();
+                BindGridinventory(listinventory);
+                FillCoffeeTypeCombobox(listcoffeetype);
+
 
             }
             catch (Exception ex)
@@ -83,6 +92,26 @@ namespace Cafe
             }
 
 
+        }
+        private void BindGridinventory(List<INVENTORY> listinventory)
+        {
+            dgvkho.Rows.Clear();
+            foreach (var item in listinventory)
+            {
+                int index = dgvkho.Rows.Add(item);
+                dgvkho.Rows[index].Cells[0].Value = item.IDINVENTORY;
+                dgvkho.Rows[index].Cells[1].Value = item.COFFEETYPE.NAME;
+                dgvkho.Rows[index].Cells[2].Value = item.QUANTITY;
+                dgvkho.Rows[index].Cells[3].Value = item.DATE_RECEIVED;
+                dgvkho.Rows[index].Cells[4].Value = item.DATE_EXPIRED;
+            }
+        }
+        private void FillCoffeeTypeCombobox(List<COFFEETYPE> listcoffeetype)
+        {
+            listcoffeetype.Insert(0, new COFFEETYPE());
+            this.cmbidcoffee.DataSource = listcoffeetype;
+            this.cmbidcoffee.DisplayMember = "NAME";
+            this.cmbidcoffee.ValueMember = "IDTYPE";
         }
 
         private void BindGridTK(List<ACCOUNT> listaccount)
@@ -1455,6 +1484,171 @@ namespace Cafe
             }
             else
                 return;
+        }
+
+        private void dgvkho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvkho.Rows[e.RowIndex];
+                txtidkho.Text = selectedRow.Cells[0]?.Value?.ToString();
+                cmbidcoffee.Text = selectedRow.Cells[1]?.Value?.ToString();
+                txtconlai.Text = selectedRow.Cells[2]?.Value?.ToString();
+                dtpkdayin.Text = selectedRow.Cells[3]?.Value?.ToString();
+                dtpkdayout.Text = selectedRow.Cells[4]?.Value?.ToString();
+
+            }
+        }
+
+        private void btthemkho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtidkho.Text) ||
+                   string.IsNullOrEmpty(cmbidcoffee.Text) ||
+                   string.IsNullOrEmpty(txtconlai.Text) ||
+                   string.IsNullOrEmpty(dtpkdayin.Text) ||
+                   string.IsNullOrEmpty(dtpkdayout.Text)
+                   )
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                INVENTORY inventory = new INVENTORY
+                {
+                    IDINVENTORY = int.Parse(txtidkho.Text.Trim()),
+                    IDTYPE = int.Parse(cmbidcoffee.SelectedValue.ToString()),
+                    QUANTITY = float.Parse(txtconlai.Text.Trim()),
+                    DATE_RECEIVED = dtpkdayin.Value,
+                    DATE_EXPIRED = dtpkdayout.Value,
+
+                };
+                if (!string.IsNullOrEmpty(cmbidnhanvien.Text))
+                {
+                    inventory.IDTYPE = int.Parse(cmbidcoffee.SelectedValue.ToString());
+                }
+                var (result, message) = inventoryService.Add(inventory);
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                if (result)
+                {
+                    var listinventory = inventoryService.GetAll();
+                    BindGridinventory(listinventory);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btxoakho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvkho.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dgvkho.SelectedRows[0];
+                    int idinventory = (int)selectedRow.Cells[0].Value;
+
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?",
+                                                        "Xác nhận xóa",
+                                                        MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Question);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var (result, message) = inventoryService.DeleteById(idinventory);
+
+                        MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                        if (result)
+                        {
+                            var listinventory = inventoryService.GetAll();
+                            BindGridinventory(listinventory);
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một khuyến mãi để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btsuakho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtidkho.Text) ||
+                    string.IsNullOrEmpty(cmbidcoffee.Text) ||
+                    string.IsNullOrEmpty(txtconlai.Text) ||
+                    string.IsNullOrEmpty(dtpkdayin.Text) ||
+                    string.IsNullOrEmpty(dtpkdayout.Text))
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các trường bắt buộc.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                int idInventory = int.Parse(txtidkho.Text.Trim());
+                INVENTORY existingInventory = inventoryService.GetById(idInventory);
+
+                if (existingInventory == null)
+                {
+                    MessageBox.Show("Không tìm thấy mặt hàng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                existingInventory.IDTYPE = int.Parse(cmbidcoffee.SelectedValue.ToString());
+                existingInventory.QUANTITY = float.Parse(txtconlai.Text.Trim());
+                existingInventory.DATE_RECEIVED = dtpkdayin.Value;
+                existingInventory.DATE_EXPIRED = dtpkdayout.Value;
+
+
+                var (result, message) = inventoryService.Update(existingInventory);
+                MessageBox.Show(message, result ? "Thành công" : "Lỗi", MessageBoxButtons.OK, result ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+                if (result)
+                {
+                    var listinventory = inventoryService.GetAll();
+                    BindGridinventory(listinventory);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bttimkho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchten = txttimkho.Text.Trim();
+                var listinventory = inventoryService.GetAll();
+
+
+                if (int.TryParse(searchten, out int searchId))
+                {
+                    var filteredInventory = listinventory.Where(item => item.IDINVENTORY == searchId).ToList();
+                    BindGridinventory(filteredInventory);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập một ID hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -60,6 +60,11 @@
             this.btnaddfood = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENMON = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpinfor = new System.Windows.Forms.TabPage();
             this.panel30 = new System.Windows.Forms.Panel();
             this.txttimtk = new System.Windows.Forms.TextBox();
@@ -162,25 +167,24 @@
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.txttimkho = new System.Windows.Forms.TextBox();
+            this.bttimkho = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpkdayout = new System.Windows.Forms.DateTimePicker();
+            this.dtpkdayin = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtconlai = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtidkho = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btthemkho = new System.Windows.Forms.Button();
+            this.btsuakho = new System.Windows.Forms.Button();
+            this.btxoakho = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvkho = new System.Windows.Forms.DataGridView();
             this.IDKHO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDCAPHE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONLAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -215,11 +219,7 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMON = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbidcoffee = new System.Windows.Forms.ComboBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -262,7 +262,7 @@
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvkho)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -596,6 +596,50 @@
             this.dtgvFood.Size = new System.Drawing.Size(522, 471);
             this.dtgvFood.TabIndex = 1;
             this.dtgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "MÃ";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 56;
+            // 
+            // TENMON
+            // 
+            this.TENMON.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TENMON.HeaderText = "TÊN MÓN";
+            this.TENMON.MinimumWidth = 6;
+            this.TENMON.Name = "TENMON";
+            this.TENMON.ReadOnly = true;
+            this.TENMON.Width = 98;
+            // 
+            // LOAI
+            // 
+            this.LOAI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.LOAI.HeaderText = "LOẠI CF";
+            this.LOAI.MinimumWidth = 6;
+            this.LOAI.Name = "LOAI";
+            this.LOAI.ReadOnly = true;
+            this.LOAI.Width = 85;
+            // 
+            // GIA
+            // 
+            this.GIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GIA.HeaderText = "GIÁ";
+            this.GIA.MinimumWidth = 6;
+            this.GIA.Name = "GIA";
+            this.GIA.ReadOnly = true;
+            this.GIA.Width = 58;
+            // 
+            // IDKM
+            // 
+            this.IDKM.HeaderText = "ID KM";
+            this.IDKM.MinimumWidth = 6;
+            this.IDKM.Name = "IDKM";
+            this.IDKM.ReadOnly = true;
+            this.IDKM.Width = 125;
             // 
             // tpinfor
             // 
@@ -1553,40 +1597,41 @@
             // 
             // panel22
             // 
-            this.panel22.Controls.Add(this.textBox13);
-            this.panel22.Controls.Add(this.button4);
+            this.panel22.Controls.Add(this.txttimkho);
+            this.panel22.Controls.Add(this.bttimkho);
             this.panel22.Location = new System.Drawing.Point(536, 6);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(267, 76);
             this.panel22.TabIndex = 14;
             // 
-            // textBox13
+            // txttimkho
             // 
-            this.textBox13.Location = new System.Drawing.Point(3, 27);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(160, 22);
-            this.textBox13.TabIndex = 5;
+            this.txttimkho.Location = new System.Drawing.Point(3, 27);
+            this.txttimkho.Name = "txttimkho";
+            this.txttimkho.Size = new System.Drawing.Size(160, 22);
+            this.txttimkho.TabIndex = 5;
             // 
-            // button4
+            // bttimkho
             // 
-            this.button4.Location = new System.Drawing.Point(168, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 70);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Tìm";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bttimkho.Location = new System.Drawing.Point(168, 3);
+            this.bttimkho.Name = "bttimkho";
+            this.bttimkho.Size = new System.Drawing.Size(95, 70);
+            this.bttimkho.TabIndex = 4;
+            this.bttimkho.Text = "Tìm";
+            this.bttimkho.UseVisualStyleBackColor = true;
+            this.bttimkho.Click += new System.EventHandler(this.bttimkho_Click);
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.cmbidcoffee);
             this.panel23.Controls.Add(this.label2);
             this.panel23.Controls.Add(this.label3);
-            this.panel23.Controls.Add(this.dateTimePicker1);
-            this.panel23.Controls.Add(this.dateTimePicker2);
+            this.panel23.Controls.Add(this.dtpkdayout);
+            this.panel23.Controls.Add(this.dtpkdayin);
             this.panel23.Controls.Add(this.label4);
-            this.panel23.Controls.Add(this.textBox14);
+            this.panel23.Controls.Add(this.txtconlai);
             this.panel23.Controls.Add(this.label7);
-            this.panel23.Controls.Add(this.textBox15);
-            this.panel23.Controls.Add(this.textBox16);
+            this.panel23.Controls.Add(this.txtidkho);
             this.panel23.Controls.Add(this.label8);
             this.panel23.Location = new System.Drawing.Point(537, 97);
             this.panel23.Name = "panel23";
@@ -1611,19 +1656,19 @@
             this.label3.TabIndex = 48;
             this.label3.Text = "day in";
             // 
-            // dateTimePicker1
+            // dtpkdayout
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(64, 241);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 47;
+            this.dtpkdayout.Location = new System.Drawing.Point(64, 241);
+            this.dtpkdayout.Name = "dtpkdayout";
+            this.dtpkdayout.Size = new System.Drawing.Size(200, 22);
+            this.dtpkdayout.TabIndex = 47;
             // 
-            // dateTimePicker2
+            // dtpkdayin
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(64, 191);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 46;
+            this.dtpkdayin.Location = new System.Drawing.Point(64, 191);
+            this.dtpkdayin.Name = "dtpkdayin";
+            this.dtpkdayin.Size = new System.Drawing.Size(200, 22);
+            this.dtpkdayin.TabIndex = 46;
             // 
             // label4
             // 
@@ -1634,13 +1679,13 @@
             this.label4.TabIndex = 45;
             this.label4.Text = "còn lại";
             // 
-            // textBox14
+            // txtconlai
             // 
-            this.textBox14.Location = new System.Drawing.Point(64, 141);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(200, 22);
-            this.textBox14.TabIndex = 44;
+            this.txtconlai.Location = new System.Drawing.Point(64, 141);
+            this.txtconlai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtconlai.Name = "txtconlai";
+            this.txtconlai.Size = new System.Drawing.Size(200, 22);
+            this.txtconlai.TabIndex = 44;
             // 
             // label7
             // 
@@ -1651,21 +1696,13 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "ID kho";
             // 
-            // textBox15
+            // txtidkho
             // 
-            this.textBox15.Location = new System.Drawing.Point(64, 83);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(200, 22);
-            this.textBox15.TabIndex = 41;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(64, 33);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(200, 22);
-            this.textBox16.TabIndex = 40;
+            this.txtidkho.Location = new System.Drawing.Point(64, 33);
+            this.txtidkho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtidkho.Name = "txtidkho";
+            this.txtidkho.Size = new System.Drawing.Size(200, 22);
+            this.txtidkho.TabIndex = 40;
             // 
             // label8
             // 
@@ -1678,64 +1715,68 @@
             // 
             // panel24
             // 
-            this.panel24.Controls.Add(this.button8);
-            this.panel24.Controls.Add(this.button9);
-            this.panel24.Controls.Add(this.button10);
+            this.panel24.Controls.Add(this.btthemkho);
+            this.panel24.Controls.Add(this.btsuakho);
+            this.panel24.Controls.Add(this.btxoakho);
             this.panel24.Location = new System.Drawing.Point(4, 6);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(527, 76);
             this.panel24.TabIndex = 12;
             // 
-            // button8
+            // btthemkho
             // 
-            this.button8.Location = new System.Drawing.Point(410, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(95, 70);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Sửa";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btthemkho.Location = new System.Drawing.Point(28, 3);
+            this.btthemkho.Name = "btthemkho";
+            this.btthemkho.Size = new System.Drawing.Size(95, 70);
+            this.btthemkho.TabIndex = 3;
+            this.btthemkho.Text = "Thêm";
+            this.btthemkho.UseVisualStyleBackColor = true;
+            this.btthemkho.Click += new System.EventHandler(this.btthemkho_Click);
             // 
-            // button9
+            // btsuakho
             // 
-            this.button9.Location = new System.Drawing.Point(213, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(95, 70);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "Xóa";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btsuakho.Location = new System.Drawing.Point(410, 3);
+            this.btsuakho.Name = "btsuakho";
+            this.btsuakho.Size = new System.Drawing.Size(95, 70);
+            this.btsuakho.TabIndex = 2;
+            this.btsuakho.Text = "Sửa";
+            this.btsuakho.UseVisualStyleBackColor = true;
+            this.btsuakho.Click += new System.EventHandler(this.btsuakho_Click);
             // 
-            // button10
+            // btxoakho
             // 
-            this.button10.Location = new System.Drawing.Point(23, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(95, 70);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "Thêm";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btxoakho.Location = new System.Drawing.Point(213, 3);
+            this.btxoakho.Name = "btxoakho";
+            this.btxoakho.Size = new System.Drawing.Size(95, 70);
+            this.btxoakho.TabIndex = 1;
+            this.btxoakho.Text = "Xóa";
+            this.btxoakho.UseVisualStyleBackColor = true;
+            this.btxoakho.Click += new System.EventHandler(this.btxoakho_Click);
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.dataGridView2);
+            this.panel25.Controls.Add(this.dgvkho);
             this.panel25.Location = new System.Drawing.Point(4, 97);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(527, 477);
             this.panel25.TabIndex = 11;
             // 
-            // dataGridView2
+            // dgvkho
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvkho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvkho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDKHO,
             this.IDCAPHE,
             this.CONLAI,
             this.NGAYNHAPKHO,
             this.HSD});
-            this.dataGridView2.Location = new System.Drawing.Point(5, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(519, 471);
-            this.dataGridView2.TabIndex = 1;
+            this.dgvkho.Location = new System.Drawing.Point(5, 3);
+            this.dgvkho.Name = "dgvkho";
+            this.dgvkho.RowHeadersWidth = 51;
+            this.dgvkho.RowTemplate.Height = 24;
+            this.dgvkho.Size = new System.Drawing.Size(519, 471);
+            this.dgvkho.TabIndex = 1;
+            this.dgvkho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvkho_CellContentClick);
             // 
             // IDKHO
             // 
@@ -2037,49 +2078,13 @@
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
-            // ID
+            // cmbidcoffee
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "MÃ";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 56;
-            // 
-            // TENMON
-            // 
-            this.TENMON.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TENMON.HeaderText = "TÊN MÓN";
-            this.TENMON.MinimumWidth = 6;
-            this.TENMON.Name = "TENMON";
-            this.TENMON.ReadOnly = true;
-            this.TENMON.Width = 98;
-            // 
-            // LOAI
-            // 
-            this.LOAI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.LOAI.HeaderText = "LOẠI CF";
-            this.LOAI.MinimumWidth = 6;
-            this.LOAI.Name = "LOAI";
-            this.LOAI.ReadOnly = true;
-            this.LOAI.Width = 85;
-            // 
-            // GIA
-            // 
-            this.GIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.GIA.HeaderText = "GIÁ";
-            this.GIA.MinimumWidth = 6;
-            this.GIA.Name = "GIA";
-            this.GIA.ReadOnly = true;
-            this.GIA.Width = 58;
-            // 
-            // IDKM
-            // 
-            this.IDKM.HeaderText = "ID KM";
-            this.IDKM.MinimumWidth = 6;
-            this.IDKM.Name = "IDKM";
-            this.IDKM.ReadOnly = true;
-            this.IDKM.Width = 125;
+            this.cmbidcoffee.FormattingEnabled = true;
+            this.cmbidcoffee.Location = new System.Drawing.Point(64, 83);
+            this.cmbidcoffee.Name = "cmbidcoffee";
+            this.cmbidcoffee.Size = new System.Drawing.Size(200, 24);
+            this.cmbidcoffee.TabIndex = 51;
             // 
             // Admin
             // 
@@ -2147,7 +2152,7 @@
             this.panel23.PerformLayout();
             this.panel24.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvkho)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
@@ -2281,25 +2286,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txttimkho;
+        private System.Windows.Forms.Button bttimkho;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpkdayout;
+        private System.Windows.Forms.DateTimePicker dtpkdayin;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtconlai;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtidkho;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btsuakho;
+        private System.Windows.Forms.Button btxoakho;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvkho;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDKHO;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCAPHE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONLAI;
@@ -2357,5 +2360,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIA;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDKM;
+        private System.Windows.Forms.Button btthemkho;
+        private System.Windows.Forms.ComboBox cmbidcoffee;
     }
 }
