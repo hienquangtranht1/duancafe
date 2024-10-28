@@ -1207,23 +1207,24 @@ namespace Cafe
         {
             try
             {
-
                 List<BILL> billList = bILLService.GetBillListByDate(checkin, checkout);
 
-
-                var billViewList = billList.Select(b => new
+                var billViewList = billList.SelectMany(b => b.BILLINFOes.Select(bi => new
                 {
                     IDBILL = b.IDBILL,
                     TableName = b.TABLECOFFEE.NAME,
                     Status = b.STATUS == 1 ? "Đã thanh toán" : "Chưa thanh toán",
                     DateCheckIn = b.dateCheckIn,
                     DateCheckOut = b.dateCheckOut,
-                    TotalPrice = b.BILLINFOes.Sum(bi => bi.COUNT)
-                }).ToList();
+                    TotalPrice = b.BILLINFOes.Sum(binfo => binfo.COUNT),
+                    MenuItemName = bi.MENU.NAME,
 
+                    Price = bi.MENU.PRICE,
+
+                    TotalItemPrice = bi.COUNT
+                })).ToList();
 
                 dgvBill.DataSource = billViewList;
-
 
                 setGridViewStyle(dgvBill);
             }
@@ -1243,24 +1244,35 @@ namespace Cafe
 
             using (ExcelPackage excelPackage = new ExcelPackage())
             {
-
                 var worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
 
-
+                // Ghi tiêu đề cột
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
                     worksheet.Cells[1, i + 1].Value = dgv.Columns[i].HeaderText;
                 }
 
-
+                // Ghi dữ liệu từ DataGridView vào Excel
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1].Value = dgv.Rows[i].Cells[j].Value;
+                        var cellValue = dgv.Rows[i].Cells[j].Value;
+
+                        if (cellValue != null && cellValue is DateTime dateTimeValue)
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = dateTimeValue;
+                            worksheet.Cells[i + 2, j + 1].Style.Numberformat.Format = "dd/MM/yyyy HH:mm:ss";
+                        }
+                        else
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = cellValue;
+                        }
                     }
                 }
 
+                // Điều chỉnh độ rộng cột tự động
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
                 var saveFileDialog = new SaveFileDialog
                 {
@@ -1270,9 +1282,22 @@ namespace Cafe
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
-                    excelPackage.SaveAs(fileInfo);
-                    MessageBox.Show("Xuất dữ liệu thành công!");
+                    string filePath = saveFileDialog.FileName;
+
+                    try
+                    {
+                        FileInfo fileInfo = new FileInfo(filePath);
+                        excelPackage.SaveAs(fileInfo);
+                        MessageBox.Show("Xuất dữ liệu thành công!");
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("Tệp đang được sử dụng bởi một quy trình khác. Vui lòng đóng tệp và thử lại.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    }
                 }
             }
         }
