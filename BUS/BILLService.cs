@@ -29,18 +29,18 @@ namespace BUS
                 instance = value;
             }
         }
-        
 
 
-            public List<BILL> GetBillListByDate(DateTime checkIn, DateTime checkOut)
+
+        public List<BILL> GetBillListByDate(DateTime checkIn, DateTime checkOut)
         {
             using (var model = new CAFEModel())
             {
-           
                 var billList = model.BILLs
                                     .Include(b => b.TABLECOFFEE)
-                                    .Include(b => b.BILLINFOes.Select(bi => bi.MENU)) 
-                                    .Where(b => b.dateCheckIn >= checkIn && b.dateCheckOut <= checkOut)
+                                    .Include(b => b.BILLINFOes.Select(bi => bi.MENU))
+                                    .Where(b => DbFunctions.TruncateTime(b.dateCheckIn) >= DbFunctions.TruncateTime(checkIn)
+                                             && DbFunctions.TruncateTime(b.dateCheckOut) <= DbFunctions.TruncateTime(checkOut))
                                     .ToList();
                 return billList;
             }
