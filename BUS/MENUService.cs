@@ -10,6 +10,23 @@ namespace BUS
 {
         public  class MENUService
     {
+        public static MENUService instance;
+        public static MENUService Instance
+        {
+            get
+            {
+                if (instance == null) instance = new MENUService();
+                return instance;
+            }
+            private set
+            {
+                instance = value;
+            }
+        }
+
+        // Constructor private để ngăn việc tạo instance từ bên ngoài
+        public MENUService() { }
+
         public List<MENU> GetAll()
         {
             CAFEModel model = new CAFEModel();

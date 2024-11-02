@@ -208,3 +208,137 @@ D:\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 D:\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
 D:\duancafe\BUS\obj\Debug\BUS.dll
 D:\duancafe\BUS\obj\Debug\BUS.pdb
+D:\duancafe\BUS\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\duancafe\BUS\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\duancafe\BUS\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\duancafe\BUS\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\duancafe\BUS\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\duancafe\BUS\bin\Debug\EnvDTE.dll
+D:\duancafe\BUS\bin\Debug\stdole.dll
+D:\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\BUS.dll.config
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\BUS.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\BUS.pdb
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\DAL.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EntityFramework.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EPPlus.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Buffers.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Memory.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EnvDTE.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\stdole.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\DAL.pdb
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\DAL.dll.config
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EntityFramework.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\EPPlus.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Buffers.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Memory.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\obj\Debug\BUS.csproj.Up2Date
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\obj\Debug\BUS.dll
+C:\Users\HOANG  ANH\Documents\duancafe\duancafe\BUS\obj\Debug\BUS.pdb

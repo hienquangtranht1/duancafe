@@ -92,6 +92,7 @@ namespace Cafe
             }
 
 
+          //  this.reportViewer1.RefreshReport();
         }
         private void BindGridinventory(List<INVENTORY> listinventory)
         {

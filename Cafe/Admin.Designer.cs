@@ -170,6 +170,7 @@
             this.txttimkho = new System.Windows.Forms.TextBox();
             this.bttimkho = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.cmbidcoffee = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpkdayout = new System.Windows.Forms.DateTimePicker();
@@ -219,7 +220,6 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbidcoffee = new System.Windows.Forms.ComboBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -462,7 +462,6 @@
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = global::Cafe.Properties.Resources.ca_phe_buon_me_thuoc;
             this.pictureBox1.Location = new System.Drawing.Point(64, 292);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 138);
@@ -1638,6 +1637,14 @@
             this.panel23.Size = new System.Drawing.Size(267, 477);
             this.panel23.TabIndex = 13;
             // 
+            // cmbidcoffee
+            // 
+            this.cmbidcoffee.FormattingEnabled = true;
+            this.cmbidcoffee.Location = new System.Drawing.Point(64, 83);
+            this.cmbidcoffee.Name = "cmbidcoffee";
+            this.cmbidcoffee.Size = new System.Drawing.Size(200, 24);
+            this.cmbidcoffee.TabIndex = 51;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -2077,14 +2084,6 @@
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
-            // 
-            // cmbidcoffee
-            // 
-            this.cmbidcoffee.FormattingEnabled = true;
-            this.cmbidcoffee.Location = new System.Drawing.Point(64, 83);
-            this.cmbidcoffee.Name = "cmbidcoffee";
-            this.cmbidcoffee.Size = new System.Drawing.Size(200, 24);
-            this.cmbidcoffee.TabIndex = 51;
             // 
             // Admin
             // 

@@ -414,63 +414,72 @@ namespace Cafe
         
         private void btntt_Click(object sender, EventArgs e)
         {
-            
+
             if (selectedTableId > 0)
             {
+                // Tạo hóa đơn mới
                 BILL newBill = new BILL
                 {
                     IDBILL = GenerateBillId(),
                     IDTABLE = selectedTableId,
                     dateCheckIn = DateTime.Now,
                     dateCheckOut = DateTime.Now,
-                    STATUS = 1,       
+                    STATUS = 1,
                 };
 
                 bILLService.Add(newBill);
+
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells[0].Value != null)
                     {
                         int menuId = Convert.ToInt32(row.Cells[0].Value.ToString());
-                        float quantity = Convert.ToInt32(row.Cells[3].Value); 
-                        float price = Convert.ToSingle(row.Cells[2].Value); 
-                        double count = 0;
-                        string discountText = row.Cells[4].Value?.ToString(); 
+                        float quantity = Convert.ToInt32(row.Cells[3].Value);
+                        float price = Convert.ToSingle(row.Cells[2].Value);
+                        double count;
+                        string discountText = row.Cells[4].Value?.ToString();
                         float discountPercentage = 0;
+
                         if (!string.IsNullOrEmpty(discountText) && discountText != "Không có khuyến mãi")
                         {
                             discountPercentage = float.Parse(discountText.TrimEnd('%')) / 100;
-                            count = price * quantity * (1 - discountPercentage); 
+                            count = price * quantity * (1 - discountPercentage);
                         }
                         else
                         {
-                            count = price * quantity; 
+                            count = price * quantity;
                         }
+
                         BILLINFO billInfo = new BILLINFO
                         {
                             IDINFO = GenerateBillInfoId(),
                             IDBILL = newBill.IDBILL,
                             IDMENU = menuId,
                             COUNT = count,
-                            
                         };
                         bILLINFOService.Add(billInfo);
-                        UpdateTotalPrice();
                     }
                 }
 
+                UpdateTotalPrice(); // Cập nhật tổng giá sau khi thêm hóa đơn
+
+                // Cập nhật trạng thái bàn
                 table.UpdateTableStatus(selectedTableId, "CÓ KHÁCH");
                 var listtable = table.GetAll();
                 BindGridTable(listtable);
                 dataGridView1.Rows.Clear();
-                UpdateTotalPrice();
 
                 MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Hiển thị WinForm Reportcs với IDBill của hóa đơn vừa tạo
+                Reportcs reportForm = new Reportcs(newBill.IDBILL);
+                reportForm.Show();
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một bàn trước khi thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
         private int GenerateBillId()
         {
